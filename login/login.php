@@ -2,7 +2,7 @@
 sesson_start();
 if(isset($_SESSON["username"])==true&&
    isset($_SESSON["userid"])==true){
-       header('Location:login.menu.php');
+       header('Location:menu.php');
 }
 ?>
 <form action="logincheck.php" method="post">

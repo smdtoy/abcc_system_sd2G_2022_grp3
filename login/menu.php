@@ -6,5 +6,5 @@ if(isset($_SESSION['username'])==false||
 }
 
 echo"ようこそ　$_SESSON[username]さん<br>";
-echo"<a href=¥"login.php¥">ログアウト</a>";
+echo"<a href=¥"logout.php¥">ログアウト</a>";
 ?>
