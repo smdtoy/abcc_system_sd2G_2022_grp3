@@ -1,0 +1,35 @@
+ h1{
+   text-align: center;
+   height: 50px;
+   margin-top: 50px;
+ }  
+  
+  .id{
+    height: 50px;
+    position: relative;
+    display: block;
+    width: 500px;
+    margin-top: 30px;
+    margin-left: 450px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #a0a0a0;
+  }
+  .pas{
+    height: 50px;
+    position: relative;
+    display: block;
+    width: 500px;
+    margin-top: 30px;
+    margin-left: 450px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #a0a0a0;
+  }
+  .button{
+    height: 30px;
+    text-align: center;
+    margin-left: 680px;
+  }

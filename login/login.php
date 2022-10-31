@@ -1,12 +1,14 @@
+<link rel="stylesheet" href="uidstyle.css">
+<h1>ログイン</h1>
 <?php
-sesson_start();
+session_start();
 if(isset($_SESSON["username"])==true&&
    isset($_SESSON["userid"])==true){
-       header('Location:login.menu.php');
+       header('Location:menu.php');
 }
 ?>
 <form action="logincheck.php" method="post">
-    ID:<input type="text"name="uid"><br>
-    PASSWORD:<input type="password"name="psw"><br>
-    <input type="submit" value="ログイン">
+    <input class="id" type="text"name="uid" placeholder="メールアドレス"><br>
+    <input class="pas"type="password"name="psw" placeholder="パスワード"><br>
+    <input class="button"type="submit" value="ログイン">
 </form>
