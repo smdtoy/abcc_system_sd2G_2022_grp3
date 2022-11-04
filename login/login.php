@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="uidstyle.css">
-<h1>ログイン</h1>
+
 <?php
 session_start();
 if(isset($_SESSON["username"])==true&&
@@ -8,7 +8,12 @@ if(isset($_SESSON["username"])==true&&
 }
 ?>
 <form action="logincheck.php" method="post">
-    <input class="id" type="text"name="uid" placeholder="メールアドレス"><br>
-    <input class="pas"type="password"name="psw" placeholder="パスワード"><br>
-    <input class="button"type="submit" value="ログイン">
+<div class="top">
+<h1>ログイン</h1>
+</div>
+<div class="body">
+    <input type="text" name="uid" placeholder="メールアドレス"><br>
+    <input type="text" name="psw" placeholder="パスワード"><br>
+<button type="submit">ログイン</button>
+</div>
 </form>
