@@ -1,0 +1,22 @@
+#menuber {
+    background-color: #EFEFEF;
+    line-height: 50px;
+}
+
+#logo {
+    font-family: 'メイリオ', 'Meiryo', sans-serif;
+    font-size: 150%;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nav-menu {
+    background-color: #E0E0E0;
+    text-align: left;
+    margin: auto;
+}
+
+.nav-link {
+    color: black;
+}
