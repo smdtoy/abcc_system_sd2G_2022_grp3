@@ -52,7 +52,7 @@ class DBManager {
         $ps = $pdo -> prerare($sql);
         $ps -> bindValue(1, $getuid, PDO::PARAM_STR);
         $ps -> execute();
-        $searchArray =$ps -> fetchAll();
+        $searchArray = $ps -> fetchAll();
         return $searchArray;
     }
 
@@ -65,7 +65,14 @@ class DBManager {
     }
 
     //商品カート登録
+    public function insertCartTbl($getshohinId) {
+
+    }
 
     //商品カート削除
+    public function deleteCartTbl($getshohinId) {
+        $pdo = $this -> dbConnect();
+        $sql = ""
+    }
 }
 ?>
