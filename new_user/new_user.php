@@ -318,8 +318,7 @@
                     </div>
                 </li>
                 <div class="row">
-                    <a class="backbtn btn btn-outline-ligth col-auto" href="userchange.php">戻る</a>
-                    <a class="changebtn btn btn-outline-ligth col-auto" href="#">登録する</a>
+                    <a class="changebtn btn btn-outline-ligth col-auto" href="#">次へ</a>
                 </div>
             </ul>
         </div>
