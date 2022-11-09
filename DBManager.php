@@ -65,27 +65,21 @@ class DBManager {
     }
 
     //商品カート登録
-<<<<<<< HEAD
+
     public function getCartTblByUid($getuid) {
         $pdo = $this -> dbConnect();
         $sql = "SELECT "
-
+        $ps = $pdo -> prepare($sql);
+    }
 
     //商品カート削除
     public function getCartTblByUid($getuid) {
         $pdo = $this -> dbConnect();
 
     //
-=======
     public function insertCartTbl($getshohinId) {
 
-    }
 
-    //商品カート削除
-    public function deleteCartTbl($getshohinId) {
-        $pdo = $this -> dbConnect();
-        $sql = ""
     }
->>>>>>> d070ced457d2bd4b4118f4fd640e7f05ad4c1dcc
 }
 ?>
