@@ -52,7 +52,7 @@ class DBManager {
         $ps = $pdo -> prerare($sql);
         $ps -> bindValue(1, $getuid, PDO::PARAM_STR);
         $ps -> execute();
-        $searchArray =$ps -> fetchAll();
+        $searchArray = $ps -> fetchAll();
         return $searchArray;
     }
 
@@ -65,6 +65,7 @@ class DBManager {
     }
 
     //商品カート登録
+<<<<<<< HEAD
     public function getCartTblByUid($getuid) {
         $pdo = $this -> dbConnect();
         $sql = "SELECT "
@@ -75,5 +76,16 @@ class DBManager {
         $pdo = $this -> dbConnect();
 
     //
+=======
+    public function insertCartTbl($getshohinId) {
+
+    }
+
+    //商品カート削除
+    public function deleteCartTbl($getshohinId) {
+        $pdo = $this -> dbConnect();
+        $sql = ""
+    }
+>>>>>>> d070ced457d2bd4b4118f4fd640e7f05ad4c1dcc
 }
 ?>
