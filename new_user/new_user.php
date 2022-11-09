@@ -112,9 +112,26 @@
                     <div class="row">
                         <p class="col-md-2">性別</p>
                         <div class="col-md-8">
-                        <input type="radio" name="gender" value="male">男性&emsp;
-                        <input type="radio" name="gender" value="female">女性&emsp;
-                        <input type="radio" name="gender" value="sonota">その他<br>
+                        <div class="row">
+                        <div class="form-check form-check-inline col-sm-3">
+                            <input class="form-check-input" type="radio" name="gender" id="male">
+                            <label class="form-check-label" for="male">
+                              男性
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline col-sm-3">
+                            <input class="form-check-input" type="radio" name="gender" id="female">
+                            <label class="form-check-label" for="female">
+                              女性
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline col-sm-3">
+                            <input class="form-check-input" type="radio" name="gender" id="none">
+                            <label class="form-check-label" for="none">
+                              その他
+                            </label>
+                        </div>
+                        </div>
                         </div>
                     </div>
                 </li>
@@ -294,27 +311,38 @@
                 <li class="list-group-item">
                     <div class="row">
                         <p class="col-md-2">氏名</p>
-                        <div class="col-md-8">
-                            姓<input type="text" maxlength="100">
-                            名<input type="text" maxlength="100"><br></div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="inputSei" placeholder="姓">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="inputMei" placeholder="名">
+                        </div>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row">
                         <p class="col-md-2">メールアドレス</p>
-                        <div class="col-md-8"><input type="text" maxlength="254"><br></div>
+                        <div class="col-md-8">
+                            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="◯◯◯@example.jp">
+                        </div>
                     </div>
                 </li>
-                <li class="list-group-item">
+					<li class="list-group-item">
                     <div class="row">
                         <p class="col-md-2">パスワード</p>
-                        <div class="col-md-8"><input type="password" maxlength="20"><br></div>
+                        <div class="col-md-8">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="パスワードを入力してください">
+                        </div>
                     </div>
                 </li>
-                <li class="list-group-item">
+				<li class="list-group-item">
                     <div class="row">
                         <p class="col-md-2">住所</p>
-                        <div class="col-md-8"><input type="text" maxlength="200"><br></div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="inputAddress" placeholder="全角で入力してください">
+                        </div>
+                    </div>
+                </li>
                     </div>
                 </li>
                 <div class="row">
