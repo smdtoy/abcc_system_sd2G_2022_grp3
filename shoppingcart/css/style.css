@@ -1,0 +1,47 @@
+.shopcart-title-card {
+    padding: 20px;
+}
+
+.user-name {
+    text-align: right;
+}
+
+.shopping-card {
+    margin: auto;
+    width: 80%;
+}
+
+.sum-card {
+    margin-top: 2%;
+    text-align: right;
+}
+
+.user-center-card {
+    padding: 100px;
+    text-align: center;
+}
+
+.changebtn {
+    margin: 30px;
+    margin-left: auto;
+    width: 300px;
+    padding: 10px;
+    background-color: #80B2FF;
+    color: white;
+}
+
+.deletebtn {
+    margin-left: auto;
+    padding: 10px;
+    background-color: #909090;
+    color: white;
+}
+
+.nextbtn {
+    margin: 30px;
+    margin-left: auto;
+    width: 300px;
+    padding: 10px;
+    background-color: #909090;
+    color: white;
+}

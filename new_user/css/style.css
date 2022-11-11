@@ -1,0 +1,72 @@
+.user-title-card {
+  padding: 20px;
+}
+
+.user-card {
+  background-color: #F0F0F0;
+  margin: auto;
+  width: 80%;
+}
+
+.user-center-card {
+  padding: 100px;
+  text-align: center;
+}
+
+.list-group-item {
+  background-color: #F0F0F0;
+  padding: 30px 20px 30px 20px;
+  font-size: 120%;
+}
+
+#inputOldPass{
+  height: 60px;
+  font-size: large;
+}
+
+#inputNewPass {
+  height: 60px;
+  font-size: large;
+  margin-bottom: 20px;
+}
+
+#inputNewPass2 {
+  height: 60px;
+  font-size: large;
+  margin-bottom: 20px;
+
+}
+
+.changebtn {
+  margin: 30px;
+  margin-left: auto;
+  width: 300px;
+  padding: 10px;
+  background-color: #909090;
+  color: white;
+}
+
+.nextbtn {
+  margin: 30px;
+  margin-left: auto;
+  width: 300px;
+  padding: 10px;
+  background-color: #909090;
+  color: white;
+}
+
+.backbtn {
+  margin: 30px;
+  margin-right: auto;
+  width: 300px;
+  padding: 10px;
+  background-color: #909090;
+  color: white;
+}
+
+.select-col{
+  display: flex;
+  max-width: 300px;
+  align-items: center;
+}
+ 

@@ -125,7 +125,7 @@
                         </div>
                     </div>
                 </li>
-            <a class="changebtn btn btn-outline-ligth" href="userpasswordFin.html">変更する</a>
+            <a class="changebtn btn btn-outline-ligth" href="userpasswordFin.php">変更する</a>
         </div>
     </div>
 
