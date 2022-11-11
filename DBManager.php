@@ -18,6 +18,17 @@ class DBManager {
         $ps -> execute();
     }
 
+    //商品検索(商品ID)
+    public function getShohinById($getshohinId) {
+        $pdo = $this -> dbConnect();
+        $sql = "SELECT * FROM shohin_tbl WHERE shohin_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getshohinId, PDO::PARAM_INT);
+        $ps -> execute();
+        $searchArray = $ps -> fetchAll();
+        return $searchArray;
+    }
+
     //商品検索(名前)
     public function getShohinTblByName($getshohinName) {
         $pdo = $this -> dbConnect();
