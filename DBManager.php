@@ -18,6 +18,17 @@ class DBManager {
         $ps -> execute();
     }
 
+    //商品検索(商品ID)
+    public function getShohinById($getshohinId) {
+        $pdo = $this -> dbConnect();
+        $sql = "SELECT * FROM shohin_tbl WHERE shohin_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getshohinId, PDO::PARAM_INT);
+        $ps -> execute();
+        $searchArray = $ps -> fetchAll();
+        return $searchArray;
+    }
+
     //商品検索(名前)
     public function getShohinTblByName($getshohinName) {
         $pdo = $this -> dbConnect();
@@ -65,21 +76,33 @@ class DBManager {
     }
 
     //商品カート登録
+<<<<<<< HEAD
 
     public function getCartTblByUid($getuid) {
         $pdo = $this -> dbConnect();
         $sql = "SELECT "
         $ps = $pdo -> prepare($sql);
     }
+=======
+    public function getCartTblByUid($getuid) {
+        $pdo = $this -> dbConnect();
+        $sql = "SELECT ";
+    }
+
+>>>>>>> 462ffc747c6929a7cc9165edd73a85ba2c79befc
 
     //商品カート削除
     public function getCartTblByUid($getuid) {
         $pdo = $this -> dbConnect();
 
+    }
     //
+<<<<<<< HEAD
     public function insertCartTbl($getshohinId) {
 
 
     }
+=======
+>>>>>>> 462ffc747c6929a7cc9165edd73a85ba2c79befc
 }
 ?>
