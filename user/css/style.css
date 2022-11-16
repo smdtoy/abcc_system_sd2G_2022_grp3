@@ -63,3 +63,10 @@
     background-color: #909090;
     color: white;
 }
+
+.select-col{
+    display: flex;
+    max-width: 300px;
+    align-items: center;
+  }
+ 

@@ -246,11 +246,11 @@
 							<option value="2020">2020</option>
 							<option value="2021">2021</option>
 						</select>
-					</div>
-
+                        </div>
 					<div>
 						<!-- 月選択 -->
 						&nbsp;<select name="month" id="birth_2" class="validate[condRequired[birth_1]]">
+                        
 							<option value="">月</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -265,9 +265,8 @@
 							<option value="11">11</option>
 							<option value="12">12</option>
 						</select>
-					</div>
-
-					<div>
+                    </div>
+                    <div>
 						<!-- 日選択 -->
 						&nbsp;<select name="day" id="birth_3" class="validate[condRequired[birth_2]]">
 							<option value="">日</option>
@@ -303,7 +302,7 @@
 							<option value="30">30</option>
 							<option value="31">31</option>
 						</select>
-					</div>
+                    </div> 
 				</div>
 			</section>
                     </div>
