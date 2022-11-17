@@ -20,10 +20,14 @@
     <div class="container-fluid" id="menuber">
         <div class="row">
             <div class="col-md-1 offset-md-1">
-                <a class="navbar-brand" href="#" id="logo">SAKETOWN</a>
+                <a class="navbar-brand" href="top.php" id="logo">SAKETOWN</a>
             </div>
             <div class="col-md-4 offset-md-2 col-sm-6">
-                <form class="d-flex align-items-center" action="#" method="post">
+<<<<<<< HEAD
+                <form class="d-flex align-items-center" action="../shohin/shohin_word.php" method="post">
+=======
+                <form class="d-flex align-items-center" action="./shohin/shohin_word.php" method="post">
+>>>>>>> 0ca947049b2e34b93765f4b33bb6333861f97e64
                     <div class="col-md-10">
                         <input class="form-control" type="text" placeholder="Search">
                     </div>
@@ -33,8 +37,13 @@
                 </form>
             </div>
             <div class="col-md-3 offset-md-1 col-sm-6">
-                <button type="button" class="btn btn-ligth"><i class="bi bi-cart2"></i></button>
+<<<<<<< HEAD
+                <a class="btn btn-ligth" href="../shoppingcart/shopcart.php"><i class="bi bi-cart2"></i></a>
+                <a  class="btn btn-ligth" href="../shohin/shohin_like.php"><i class="bi bi-suit-heart"></i></a>
+=======
+                <a class="btn btn-ligth" href="./shoppingcart/shopcart.php"><i class="bi bi-cart2"></i></a>
                 <button type="button" class="btn btn-ligth"><i class="bi bi-suit-heart"></i></button>
+>>>>>>> 0ca947049b2e34b93765f4b33bb6333861f97e64
                 <button type="button" class="btn btn-ligth navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-controls="navbars1 navbars2 navbars3" aria-expanded="false"><i class="bi bi-list"></i></button>
             </div>
         </div>
@@ -48,10 +57,16 @@
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">SAKETOWN</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">ログイン 新規会員登録</a>
+                        <a class="nav-link active" href="../login/login.php">ログイン</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">ログアウト</a>
+                        <a class="nav-link active" href="../new_user/new_user.php">新規会員登録</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../logout/logout.php">ログアウト</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../syoukai/syoukai.php">はじめての方に</a>
                     </li>
                 </ul>
             </div>
@@ -64,10 +79,10 @@
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">ユーザー</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">ユーザー設定</a>
+                        <a class="nav-link active" href="../user/user.php">ユーザー設定</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">パスワード変更</a>
+                        <a class="nav-link active" href="../user/userpassword.php">パスワード変更</a>
                     </li>
                 </ul>
             </div>
@@ -82,18 +97,18 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">県別で探す</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                            <li><a class="dropdown-item" href="#">福岡県</a></li>
-                            <li><a class="dropdown-item" href="#">佐賀県</a></li>
-                            <li><a class="dropdown-item" href="#">長崎県</a></li>
-                            <li><a class="dropdown-item" href="#">熊本県</a></li>
-                            <li><a class="dropdown-item" href="#">宮崎県</a></li>
-                            <li><a class="dropdown-item" href="#">大分県</a></li>
-                            <li><a class="dropdown-item" href="#">鹿児島県</a></li>
-                            <li><a class="dropdown-item" href="#">沖縄県</a></li>
+                            <li><a class="dropdown-item" href="../ken/fukuoka.php">福岡県</a></li>
+                            <li><a class="dropdown-item" href="../ken/saga.php">佐賀県</a></li>
+                            <li><a class="dropdown-item" href="../ken/nagasaki.php">長崎県</a></li>
+                            <li><a class="dropdown-item" href="../ken/kumamoto">熊本県</a></li>
+                            <li><a class="dropdown-item" href="../ken/miyazaki.php">宮崎県</a></li>
+                            <li><a class="dropdown-item" href="../ken/ooita.php">大分県</a></li>
+                            <li><a class="dropdown-item" href="../ken/kagosima.php">鹿児島県</a></li>
+                            <li><a class="dropdown-item" href="../ken/kagosima.php">沖縄県</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">項目で探す</a>
+                        <a class="nav-link" href="../koumoku/koumoku.php">項目で探す</a>
                     </li>
                 </ul>
             </div>
@@ -116,7 +131,6 @@
 
 
     <h1>商品一覧</h1>
-
 
 
 </body>
