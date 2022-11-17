@@ -16,11 +16,9 @@
     <div class="container-fluid" id="menuber">
         <div class="row">
             <div class="col-md-1 offset-md-1">
-<<<<<<< HEAD
-                <a class="navbar-brand" href="top.php" id="logo">SAKETOWN</a>
-=======
+
                 <a class="navbar-brand" href="../top/top.php" id="logo">SAKETOWN</a>
->>>>>>> 0ca947049b2e34b93765f4b33bb6333861f97e64
+
             </div>
             <div class="col-md-4 offset-md-2 col-sm-6">
                 <form class="d-flex align-items-center" action="../shohin/shohin_word.php" method="post">

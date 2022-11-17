@@ -23,11 +23,7 @@
                 <a class="navbar-brand" href="top.php" id="logo">SAKETOWN</a>
             </div>
             <div class="col-md-4 offset-md-2 col-sm-6">
-<<<<<<< HEAD
-                <form class="d-flex align-items-center" action="../shohin/shohin_word.php" method="post">
-=======
                 <form class="d-flex align-items-center" action="./shohin/shohin_word.php" method="post">
->>>>>>> 0ca947049b2e34b93765f4b33bb6333861f97e64
                     <div class="col-md-10">
                         <input class="form-control" type="text" placeholder="Search">
                     </div>
@@ -37,13 +33,8 @@
                 </form>
             </div>
             <div class="col-md-3 offset-md-1 col-sm-6">
-<<<<<<< HEAD
                 <a class="btn btn-ligth" href="../shoppingcart/shopcart.php"><i class="bi bi-cart2"></i></a>
                 <a  class="btn btn-ligth" href="../shohin/shohin_like.php"><i class="bi bi-suit-heart"></i></a>
-=======
-                <a class="btn btn-ligth" href="./shoppingcart/shopcart.php"><i class="bi bi-cart2"></i></a>
-                <button type="button" class="btn btn-ligth"><i class="bi bi-suit-heart"></i></button>
->>>>>>> 0ca947049b2e34b93765f4b33bb6333861f97e64
                 <button type="button" class="btn btn-ligth navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-controls="navbars1 navbars2 navbars3" aria-expanded="false"><i class="bi bi-list"></i></button>
             </div>
         </div>
