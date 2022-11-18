@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../menu/css/style.css">
   <link rel="stylesheet" href="style1.css">
-  <title>sake_pr</title>
+  <title>pr</title>
 </head>
 <body>
     <div class="container-fluid" id="menuber">
