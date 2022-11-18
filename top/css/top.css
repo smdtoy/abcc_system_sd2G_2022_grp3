@@ -73,11 +73,7 @@
 
 /*========= レイアウトのためのCSS ===============*/
 
-body{
-  background-image:url(../img/backgrand.jpg);
-  background-size: 100%;
-  background-attachment: fixed;
-}
+
 
 h2,p {
     text-align:center;
