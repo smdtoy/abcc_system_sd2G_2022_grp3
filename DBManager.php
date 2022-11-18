@@ -87,6 +87,20 @@ class DBManager {
         $pdo = $this -> dbConnect();
 
     }
-    //
+
+    //ユーザー登録内容変更
+    public function changeUserTbl() {
+        $pdo = $this -> dbConnect();
+        $sql = "UPDATE user_tbl SET WHERE user_id = ?";
+        $ps -> bindValue(1, , PDO::PARAM_);
+    }
+
+    //ユーザーパスワード変更
+    public function changeUserTblByPass($getNewPass) {
+        $pdo = $this -> dbConnect();
+        $sql = "UPDATE user_tbl SET password = ? WHERE user_id = ?";
+        $ps -> bindValue(1, $getNewPass, PDO::PARAM_STR);
+        
+    }
 }
 ?>
