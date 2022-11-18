@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <?php include "../menu/header.php" ?>
+    <?php include "../menu/menu.php" ?>
 
     <div class="card border-0 shopcart-title-card">
         <div class="card-body">
