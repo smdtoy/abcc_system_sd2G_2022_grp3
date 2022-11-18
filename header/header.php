@@ -1,6 +1,6 @@
 <!-- menuber -->
 <div class="container-fluid" id="menuber">
-        <div class="row">
+    <div class="row">
             <div class="col-md-1 offset-md-1">
 
                 <a class="navbar-brand" href="../top/top.php" id="logo">SAKETOWN</a>
