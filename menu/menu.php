@@ -1,11 +1,11 @@
 <!-- menuber -->
 <div class="container-fluid" id="menuber">
         <div class="row">
+            <!-- ロゴ -->
             <div class="col-md-1 offset-md-1">
-
                 <a class="navbar-brand" href="../top/top.php" id="logo">SAKETOWN</a>
-
             </div>
+            <!-- 検索ボックス -->
             <div class="col-md-4 offset-md-2 col-6">
                 <form class="d-flex align-items-center" action="../shohin/shohin_word.php" method="post">
                     <div class="col-md-10">
@@ -16,6 +16,7 @@
                     </div>
                 </form>
             </div>
+            <!-- アイコン -->
             <div class="col-md-3 offset-md-1 col-6">
                 <a class="btn btn-ligth" href="../shoppingcart/shopcart.php"><i class="bi bi-cart2"></i></a>
                 <a  class="btn btn-ligth" href="../shohin/shohin_like.php"><i class="bi bi-suit-heart"></i></a>
@@ -41,7 +42,7 @@
                         <a class="nav-link active" href="../logout/logout.php">ログアウト</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../syoukai/syoukai.php">はじめての方に</a>
+                        <a class="nav-link active" href="../pr/pr.php">はじめての方に</a>
                     </li>
                 </ul>
             </div>
