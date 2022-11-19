@@ -73,7 +73,10 @@
 
 /*========= レイアウトのためのCSS ===============*/
 
-
+.slider{
+  background-image: 7982.jpg;
+  background-attachment: fixed;
+}
 
 h2,p {
     text-align:center;

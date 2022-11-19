@@ -19,5 +19,26 @@
   
     <h2>登録内容確認</h2>
     <form action="kanryo_user.php">
+    <?php
+    $pdo = new PDO('mysql:host=localhost;dbname=saketown;cahrset=utf8','webuser','abccsd2');
+
+    $sql="INSET INTO user_tbl(user_name,mail_address,password,birthday,gender,address)VALUES(?,?,?,?,?,?)";
+
+    $ps=$pdo->prepare($sql);
+    $ps->bindValue(1,$_POST['user_name'],PDO::PARAM_STR);
+    $ps->bindValue(2,$_POST['mail_address'],PDO::PARAM_STR);
+    $ps->bindValue(3,password_hash($_POST['password'],PASSWORD_DEFAULT),PDO::PARAM_STR);
+    $ps->bindValue(4,$_POST['bithday'],PDO::PARAM_STR);
+    $ps->bindValue(5,$_POST['gender'],PDO::PARAM_STR);
+    $ps->bindvalue(6,$_POST['address'],PDO::PARAM_STR);
+    $ps->execute();
+
+    echo"性別:".$_POST['gender'];
+    echo"生年月日:".$_POST['bithday'];
+    echo"氏名:".$_POST['user_name'];
+    echo"メールアドレス:".$_POST['mail_address'];
+    echo"パスワード:".$_POST['password'];
+    echo"住所:".$_POST['address'];
+    ?>
 </body>
 </html>

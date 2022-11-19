@@ -20,11 +20,12 @@
             <h2 class="card-title">新規会員登録</h2>
         </div>
     </div>
-<from action="kakunin_user.php" method="post">
+<form action="kakunin_user.php" method="post">
     <div class="card user-card">
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item seibetu">
+			
                     <div class="row">
                         <p class="col-md-2">性別</p>
                         <div class="col-md-8">
@@ -263,10 +264,12 @@
                 <div class="row">
                     <a class="changebtn btn btn-outline-ligth col-auto" href="#">次へ</a>
                 </div>
+
             </ul>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 </html>
