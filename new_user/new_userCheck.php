@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>新規会員登録内容確認</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -32,7 +32,7 @@
                             <?php 
                                 $isErr = false;
                                 if(!isset($_POST['gender'])) {
-                                    echo "性別が選択されていません";
+                                    echo '<p class="error">性別が選択されていません</p>';
                                     $isErr = true;
                                 } else {
                                     echo $_POST['gender'];
@@ -46,15 +46,15 @@
                         <p class="col-md-2">生年月日</p>
                         <div class="col-md-8">
                             <?php
-                                if((!is_int($_POST['year']) || !is_int($_POST['month']) || !is_int($_POST['day'])) || checkdate(($_POST['month']), ($_POST['day']), ($_POST['year']))) {
-                                    echo "生年月日が不明です";
+                                if(!checkdate(($_POST['month']), ($_POST['day']), ($_POST['year']))) {
+                                    echo '<p class="error">存在しない生年月日です';
                                     $isErr = true;
                                 } else {
-                                    $date = $_POST['year'].$_POST['month'].$_POST['day'];
+                                    $date = $_POST['year'].sprintf('%02d', $_POST['month']).sprintf('%02d', $_POST['day']);
                                     $today = date('Ymd');
-                                    $is20 = floor(($today - $birthday) / 10000);
+                                    $is20 = floor(($today - $date) / 10000);
                                     if($is20 < 20) {
-                                        echo "二十歳未満です";
+                                        echo '<p class="error">二十歳未満です';
                                         $isErr = true;
                                     } else {
                                         echo $_POST['year']."年 ".$_POST['month']."月 ".$_POST['day']."日";
@@ -70,7 +70,7 @@
                         <div class="col-md-8">
                             <?php
                                 if(empty($_POST['sei']) || empty($_POST['mei'])) {
-                                    echo "名前が入力されていません";
+                                    echo '<p class="error">名前が入力されていません';
                                     $isErr = true;
                                 } else {
                                     echo $_POST['sei']." ".$_POST['mei'];
@@ -86,7 +86,7 @@
                             <?php
                                 $mail = $_POST['mail'];
                                 if (!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $mail)) {
-                                    echo "正しいメールアドレスを入力してください<br>";
+                                    echo '<p class="error">正しいメールアドレスを入力してください<br>';
                                     $isErr = true;
                                 } else {
                                     echo $_POST['mail'];
@@ -101,7 +101,7 @@
                         <div class="col-md-8">
                             <?php
                                 if(empty($_POST['pass'])) {
-                                    echo "パスワードが入力されていません<br>";
+                                    echo '<p class="error">パスワードが入力されていません<br>';
                                     $isErr = true;
                                 } else {
                                     echo $_POST['pass'];
@@ -116,7 +116,7 @@
                         <div class="col-md-8">
                             <?php
                                 if(empty($_POST['address'])) {
-                                    echo "住所を入力されていません<br>";
+                                    echo '<p class="error">住所が入力されていません<br>';
                                     $isErr = true;
                                 } else {
                                     echo $_POST['address'];
@@ -125,22 +125,25 @@
                         </div>
                     </div>
                 </li>
-
-                <a class="backbtn btn btn-outline-ligth col-auto" href="new_user.php">戻る</a>
-                <!-- 入力された内容が正しいか確認-->
-                <form>
-                    <?php
-                        if($isErr == false) {
-                            echo '<input type="hidden" value='.$_POST['gender'].' name="gender">';
-                            echo '<input type="hidden" value='.$_POST['year']."-".$_POST['month']."-".$_POST['day'].' name="date">';
-                            echo '<input type="hidden" value='.$_POST['sei']." ".$_POST['mei'].' name="name">';
-                            echo '<input type="hidden" value='.$_POST['mail'].' name="mail">';
-                            echo '<input type="hidden" value='.$_POST['pass'].' name="pass">';
-                            echo '<input type="hidden" value='.$_POST['address'].' name="address">';
-                            echo '<button class="changebtn btn btn-outline-ligth" value="submit">登録する</button>';
-                        }
-                    ?>
-                </form>
+                <div class="row">
+                    <a class="backbtn btn btn-outline-ligth col-md-4" href="new_user.php">戻る</a>
+                    <!-- 入力された内容が正しいか確認-->
+                    <div class="col-md-4 offset-md-4">
+                    <form action="new_userFin.php" method="post">
+                        <?php
+                            if($isErr == false) {
+                                echo '<button class="changebtn btn btn-outline-ligth" value="submit">登録する</button>';
+                                echo '<input type="hidden" value='.$_POST['gender'].' name="gender">';
+                                echo '<input type="hidden" value='.$_POST['year']."-".$_POST['month']."-".$_POST['day'].' name="date">';
+                                echo '<input type="hidden" value='.$_POST['sei']." ".$_POST['mei'].' name="name">';
+                                echo '<input type="hidden" value='.$_POST['mail'].' name="mail">';
+                                echo '<input type="hidden" value='.$_POST['pass'].' name="pass">';
+                                echo '<input type="hidden" value='.$_POST['address'].' name="address">';
+                            }
+                        ?>
+                    </form>
+                    </div>
+                </div>
             </ul>
         </div>
     </div>

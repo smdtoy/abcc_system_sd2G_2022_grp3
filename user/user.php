@@ -60,7 +60,7 @@
                         <div class="col-md-8">◯◯県　◯◯市　◯◯◯</div>
                     </div>
                 </li>
-                <a class="changebtn btn btn-outline-ligth" href="#">変更する</a>
+                <a class="changebtn btn btn-outline-ligth" href="userchange.php">変更する</a>
             </ul>
         </div>
     </div>

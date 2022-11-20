@@ -37,6 +37,10 @@
 
 }
 
+.error {
+  color: red;
+}
+
 .changebtn {
   margin: 30px;
   margin-left: auto;
