@@ -12,9 +12,9 @@
   <title>pr</title>
 </head>
 <body>
-<?php include "../menu/header.php" ?>
+<?php include "../header/header.php" ?>
     <!-- ここから内容 -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
 
 <h4>　　はじめての方に<h4>
 <h1>ようこそ、SAKETOWNへ</h1>
@@ -36,5 +36,6 @@
     <span class="ex">華やか</span>...甘い果実や花に例えられる
 <p>
 <hr>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

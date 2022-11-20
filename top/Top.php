@@ -10,14 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../menu/css/style.css">
-    <link rel="stylesheet" href="./css/style.css">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="./css/top.css">
 
 </head>
 <body>
     <?php include "../header/header.php" ?>
-
+    <div class="img">
     <ul class="slider">
   <li><img src="hyakunenn.png" alt=""></li>
   <li><img src="akakirisima.png" alt=""></li>
@@ -31,7 +31,7 @@
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="css/top.js"></script>
 
-
+</div>
 
     <h1>商品一覧</h1>
 
