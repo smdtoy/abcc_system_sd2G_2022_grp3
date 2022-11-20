@@ -6,35 +6,36 @@ class DBManager {
     }
 
     //新規会員登録
-    public function insertUserTbl($getname, $getmail, $getpass, $getBday, $getseibetu, $getaddress) {
+    public function insertUserTbl($getName, $getMail, $getPass, $getBirthday, $getGender, $getAddress) {
         $pdo = $this -> dbConnect();
-        $sql = "INSERT INTO user_tbl(user_name, user_mail, password, birthday, seibetu, address) VALUES(?, ?, ?, ?, ?, ?)";
-        $ps -> bindValue(1, $getname, PDO::PARAM_STR);
-        $ps -> bindValue(2, $getmail, PDO::PARAM_STR);
-        $ps -> bindValue(3, password_hash($getpass, PASSWORD_DEFAULT), PDO::PARAM_STR);
-        $ps -> bindValue(4, $getBday, PDO::PARAM_STR);
-        $ps -> bindValue(5, $getseibetu, PDO::PARAM_STR);
-        $ps -> bindValue(6, $getaddress, PDO::PARAM_STR);
+        $sql = "INSERT INTO user_tbl(user_name, mail_address, password, birthday, gender, address) VALUES(?, ?, ?, ?, ?, ?)";
+        $ps -> bindValue(1, $getName, PDO::PARAM_STR);
+        $ps -> bindValue(2, $getMail, PDO::PARAM_STR);
+        $ps -> bindValue(3, password_hash($getPass, PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $ps -> bindValue(4, $getBarthday, PDO::PARAM_STR);
+        $ps -> bindValue(5, $getGender, PDO::PARAM_STR);
+        $ps -> bindValue(6, $getAddress, PDO::PARAM_STR);
         $ps -> execute();
     }
 
     //商品検索(商品ID)
-    public function getShohinById($getshohinId) {
+    public function getShohinById($getShohinId) {
         $pdo = $this -> dbConnect();
         $sql = "SELECT * FROM shohin_tbl WHERE shohin_id = ?";
         $ps = $pdo -> prepare($sql);
-        $ps -> bindValue(1, $getshohinId, PDO::PARAM_INT);
+        $ps -> bindValue(1, $getShohinId, PDO::PARAM_INT);
         $ps -> execute();
         $searchArray = $ps -> fetchAll();
         return $searchArray;
     }
 
-    //商品検索(名前)
-    public function getShohinTblByName($getshohinName) {
+    //商品検索(ワード)
+    public function getShohinTblByWord($getShohinWord) {
         $pdo = $this -> dbConnect();
-        $sql =  "SELECT * FROM shohin_tbl WHERE shohin_name LIKE ? ORDER BY shohin_id";
+        $sql =  "SELECT * FROM shohin_tbl WHERE shohin_name LIKE ? OR shohin_detail LIKE ? ORDER BY shohin_id";
         $ps = $pdo -> prepare($sql);
-        $ps -> bindValue(1, '%'.$getshohinName.'%', PDO::PARAM_STR);
+        $ps -> bindValue(1, '%'.$getShohinName.'%', PDO::PARAM_STR);
+        $ps -> bindValue(2, '%'.$getShohinName.'%', PDO::PARAM_STR);
         $ps -> execute();
         $searchArray = $ps -> fetchAll();
         return $searchArray;

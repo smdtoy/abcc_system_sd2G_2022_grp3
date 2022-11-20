@@ -31,19 +31,19 @@
                         <div class="col-md-8">
                         <div class="row">
                         <div class="form-check form-check-inline col-sm-3">
-                            <input class="form-check-input" type="radio" name="gender" id="male">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="男性">
                             <label class="form-check-label" for="male">
                               男性
                             </label>
                         </div>
                         <div class="form-check form-check-inline col-sm-3">
-                            <input class="form-check-input" type="radio" name="gender" id="female">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="女性">
                             <label class="form-check-label" for="female">
                               女性
                             </label>
                         </div>
                         <div class="form-check form-check-inline col-sm-3">
-                            <input class="form-check-input" type="radio" name="gender" id="none">
+                            <input class="form-check-input" type="radio" name="gender" id="none" value="その他">
                             <label class="form-check-label" for="none">
                               その他
                             </label>
@@ -169,15 +169,15 @@
 						&nbsp;<select name="month" id="birth_2" class="validate[condRequired[birth_1]]">
                         
 							<option value="">月</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
+							<option value="01">1</option>
+							<option value="02">2</option>
+							<option value="03">3</option>
+							<option value="04">4</option>
+							<option value="05">5</option>
+							<option value="06">6</option>
+							<option value="07">7</option>
+							<option value="08">8</option>
+							<option value="09">9</option>
 							<option value="10">10</option>
 							<option value="11">11</option>
 							<option value="12">12</option>
@@ -228,10 +228,10 @@
                     <div class="row">
                         <p class="col-md-2">氏名</p>
                         <div class="col-md-4">
-                            <input type="text" class="form-control" id="inputSei" placeholder="姓">
+                            <input type="text" class="form-control" id="inputSei" placeholder="姓" name="sei">
                         </div>
                         <div class="col-md-4">
-                            <input type="text" class="form-control" id="inputMei" placeholder="名">
+                            <input type="text" class="form-control" id="inputMei" placeholder="名" name="mei">
                         </div>
                     </div>
                 </li>
@@ -239,7 +239,7 @@
                     <div class="row">
                         <p class="col-md-2">メールアドレス</p>
                         <div class="col-md-8">
-                            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="◯◯◯@example.jp">
+                            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="◯◯◯@example.jp" name="mail">
                         </div>
                     </div>
                 </li>
@@ -262,7 +262,7 @@
                     </div>
                 </li>
                 <div class="row">
-                    <a class="changebtn btn btn-outline-ligth col-auto" href="#">次へ</a>
+                    <input type="submit" class="changebtn btn btn-outline-ligth col-auto" value="次へ">
                 </div>
 
             </ul>

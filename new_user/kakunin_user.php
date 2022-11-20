@@ -9,36 +9,140 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../menu/css/style.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <?php include "../menu/menu.php" ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-  
-    <h2>登録内容確認</h2>
-    <form action="kanryo_user.php">
-    <?php
-    $pdo = new PDO('mysql:host=localhost;dbname=saketown;cahrset=utf8','webuser','abccsd2');
+    <div class="card border-0 user-title-card">
+        <div class="card-body">
+            <h2 class="card-title">ユーザー登録内容確認</h2>
+        </div>
+    </div>
 
-    $sql="INSET INTO user_tbl(user_name,mail_address,password,birthday,gender,address)VALUES(?,?,?,?,?,?)";
+    <div class="card user-card">
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item seibetu">
+                    <div class="row">
+                        <p class="col-md-2">性別</p>
+                        <div class="col-md-8">
+                            <?php 
+                                $isErr = false;
+                                if(!isset($_POST['gender'])) {
+                                    echo "性別が選択されていません";
+                                    $isErr = true;
+                                } else {
+                                    echo $_POST['gender'];
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <p class="col-md-2">生年月日</p>
+                        <div class="col-md-8">
+                            <?php
+                                if((!is_int($_POST['year']) || !is_int($_POST['month']) || !is_int($_POST['day'])) || checkdate(($_POST['month']), ($_POST['day']), ($_POST['year']))) {
+                                    echo "生年月日が不明です";
+                                    $isErr = true;
+                                } else {
+                                    $date = $_POST['year'].$_POST['month'].$_POST['day'];
+                                    $today = date('Ymd');
+                                    $is20 = floor(($today - $birthday) / 10000);
+                                    if($is20 < 20) {
+                                        echo "二十歳未満です";
+                                        $isErr = true;
+                                    } else {
+                                        echo $_POST['year']."年 ".$_POST['month']."月 ".$_POST['day']."日";
+                                    }
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <p class="col-md-2">氏名</p>
+                        <div class="col-md-8">
+                            <?php
+                                if(empty($_POST['sei']) || empty($_POST['mei'])) {
+                                    echo "名前が入力されていません";
+                                    $isErr = true;
+                                } else {
+                                    echo $_POST['sei']." ".$_POST['mei'];
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <p class="col-md-2">メールアドレス</p>
+                        <div class="col-md-8">
+                            <?php
+                                $mail = $_POST['mail'];
+                                if (!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $mail)) {
+                                    echo "正しいメールアドレスを入力してください<br>";
+                                    $isErr = true;
+                                } else {
+                                    echo $_POST['mail'];
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <p class="col-md-2">パスワード</p>
+                        <div class="col-md-8">
+                            <?php
+                                if(empty($_POST['pass'])) {
+                                    echo "パスワードが入力されていません<br>";
+                                    $isErr = true;
+                                } else {
+                                    echo $_POST['pass'];
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <p class="col-md-2">住所</p>
+                        <div class="col-md-8">
+                            <?php
+                                if(empty($_POST['address'])) {
+                                    echo "住所を入力されていません<br>";
+                                    $isErr = true;
+                                } else {
+                                    echo $_POST['address'];
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </li>
 
-    $ps=$pdo->prepare($sql);
-    $ps->bindValue(1,$_POST['user_name'],PDO::PARAM_STR);
-    $ps->bindValue(2,$_POST['mail_address'],PDO::PARAM_STR);
-    $ps->bindValue(3,password_hash($_POST['password'],PASSWORD_DEFAULT),PDO::PARAM_STR);
-    $ps->bindValue(4,$_POST['bithday'],PDO::PARAM_STR);
-    $ps->bindValue(5,$_POST['gender'],PDO::PARAM_STR);
-    $ps->bindvalue(6,$_POST['address'],PDO::PARAM_STR);
-    $ps->execute();
-
-    echo"性別:".$_POST['gender'];
-    echo"生年月日:".$_POST['bithday'];
-    echo"氏名:".$_POST['user_name'];
-    echo"メールアドレス:".$_POST['mail_address'];
-    echo"パスワード:".$_POST['password'];
-    echo"住所:".$_POST['address'];
-    ?>
+                <a class="backbtn btn btn-outline-ligth col-auto" href="new_user.php">戻る</a>
+                <!-- 入力された内容が正しいか確認-->
+                <form>
+                    <?php
+                        if($isErr == false) {
+                            echo '<input type="hidden" value='.$_POST['gender'].' name="gender">';
+                            echo '<input type="hidden" value='.$_POST['year']."-".$_POST['month']."-".$_POST['day'].' name="date">';
+                            echo '<input type="hidden" value='.$_POST['sei']." ".$_POST['mei'].' name="name">';
+                            echo '<input type="hidden" value='.$_POST['mail'].' name="mail">';
+                            echo '<input type="hidden" value='.$_POST['pass'].' name="pass">';
+                            echo '<input type="hidden" value='.$_POST['address'].' name="address">';
+                            echo '<button class="changebtn btn btn-outline-ligth" value="submit">登録する</button>';
+                        }
+                    ?>
+                </form>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
