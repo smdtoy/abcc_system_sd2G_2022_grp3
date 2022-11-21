@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <?php
+        require_once '../sesstion.php';
+        $result = searchUser();
+    ?>
     <?php include "../header/header.php" ?>
 
     <div class="card border-0 user-title-card">

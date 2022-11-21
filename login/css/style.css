@@ -1,0 +1,35 @@
+.login-title-card {
+  text-align:center;
+  padding: 20px;
+}
+
+.login-card {
+  background-color: #F0F0F0;
+  margin: auto;
+  width: 80%;
+}
+
+.list-group-item {
+  background-color: #F0F0F0;
+  padding: 30px 20px 30px 20px;
+  font-size: 120%;
+}
+
+#inputMail{
+  height: 60px;
+  font-size: large;
+}
+
+#inputPass{
+  height: 60px;
+  font-size: large;
+}
+
+.loginbtn {
+  margin: 30px;
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+  background-color: #80B2FF;
+  color: white;
+}
