@@ -28,7 +28,7 @@ if(isset($_SESSON["mail_address"])==true&&
             <h1>ログイン</h1>
         </div>
         <div class="touroku">
-        <div class="text">
+            <div class="text">
             <input type="text" name="uid" placeholder="メールアドレス"><br>
             <input type="text" name="psw" placeholder="パスワード"><br>
             </div>

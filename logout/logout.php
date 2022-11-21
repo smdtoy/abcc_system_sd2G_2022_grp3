@@ -14,15 +14,15 @@
 </head>
 <body>
     <?php include "../menu/menu.php" ?>
-    <h2>ログアウト</h2>
+    <h1>ログアウト</h1>
 
     <div class="logout">
     <div class="text">
-    <h1>本当にログアウトしますか</h1>
+    <p>本当にログアウトしますか</p>
     </div>
     <div class="log">
-    <input type="button" href="../top/top.php" value="キャンセル">
-    <input type="button" href="logout_fin.php" value="ログアウト">
+    <button type="submit" onclick="location.href='../top/top.php'">キャンセル</button>
+    <button type="submit" onclick="location.href='logout_fin.php'">ログアウト</button>
     </div>
     </div>
 

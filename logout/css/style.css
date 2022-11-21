@@ -1,0 +1,26 @@
+h1{
+   margin-top: 40px;
+   margin-left: 100px;
+}
+
+.logout{
+    text-align: center;
+    margin-top: 80px;
+    display:inline-block;
+    margin-left: 30%;
+    height: 350px;
+    width: 550px;
+    background-color:silver;
+}
+
+.text{
+    margin-top: 50px;
+    font-size: 200%;
+}
+.log{
+    margin-top: 150px;
+}
+
+.log button:first-of-type{
+    margin-right: 50px;
+}
