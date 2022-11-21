@@ -24,7 +24,7 @@
     <div class="card user-card">
         <div class="card-body">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item seibetu">
+                <li class="list-group-item">
                     <div class="row">
                         <p class="col-md-2">性別</p>
                         <div class="col-md-8">

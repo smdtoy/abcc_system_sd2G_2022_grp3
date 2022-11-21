@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <?php
+        require_once '../sesstion.php';
+        $result = searchUser();
+    ?>
     <div class="container-fluid" id="menuber">
         <div class="row">
             <div class="col-md-1 offset-md-1">
