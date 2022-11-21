@@ -1,7 +1,7 @@
 <?php
 class DBManager {
     private function dbConnect() {
-        $pdo = new PDO('mysql:host=localhost;dbname=webdb;charset=utf8','webuser','abccsd2');
+        $pdo = new PDO('mysql:host=localhost;dbname=saketown;charset=utf8','webuser','abccsd2');
         return $pdo;
     }
 
@@ -9,10 +9,11 @@ class DBManager {
     public function insertUserTbl($getName, $getMail, $getPass, $getBirthday, $getGender, $getAddress) {
         $pdo = $this -> dbConnect();
         $sql = "INSERT INTO user_tbl(user_name, mail_address, password, birthday, gender, address) VALUES(?, ?, ?, ?, ?, ?)";
+        $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1, $getName, PDO::PARAM_STR);
         $ps -> bindValue(2, $getMail, PDO::PARAM_STR);
         $ps -> bindValue(3, password_hash($getPass, PASSWORD_DEFAULT), PDO::PARAM_STR);
-        $ps -> bindValue(4, $getBarthday, PDO::PARAM_STR);
+        $ps -> bindValue(4, $getBirthday, PDO::PARAM_STR);
         $ps -> bindValue(5, $getGender, PDO::PARAM_STR);
         $ps -> bindValue(6, $getAddress, PDO::PARAM_STR);
         $ps -> execute();
@@ -93,7 +94,7 @@ class DBManager {
     public function changeUserTbl() {
         $pdo = $this -> dbConnect();
         $sql = "UPDATE user_tbl SET WHERE user_id = ?";
-        $ps -> bindValue(1, , PDO::PARAM_);
+        $ps -> bindValue(1, PDO::PARAM_);
     }
 
     //ユーザーパスワード変更

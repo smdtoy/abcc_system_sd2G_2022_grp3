@@ -125,25 +125,27 @@
                         </div>
                     </div>
                 </li>
-                <div class="row">
-                    <a class="backbtn btn btn-outline-ligth col-md-4" href="new_user.php">戻る</a>
-                    <!-- 入力された内容が正しいか確認-->
-                    <div class="col-md-4 offset-md-4">
-                    <form action="new_userFin.php" method="post">
-                        <?php
-                            if($isErr == false) {
-                                echo '<button class="changebtn btn btn-outline-ligth" value="submit">登録する</button>';
-                                echo '<input type="hidden" value='.$_POST['gender'].' name="gender">';
-                                echo '<input type="hidden" value='.$_POST['year']."-".$_POST['month']."-".$_POST['day'].' name="date">';
-                                echo '<input type="hidden" value='.$_POST['sei']." ".$_POST['mei'].' name="name">';
-                                echo '<input type="hidden" value='.$_POST['mail'].' name="mail">';
-                                echo '<input type="hidden" value='.$_POST['pass'].' name="pass">';
-                                echo '<input type="hidden" value='.$_POST['address'].' name="address">';
-                            }
-                        ?>
-                    </form>
+                <li class="list-group-item">
+                    <div class="row">
+                        <a class="backbtn btn btn-outline-ligth col-auto" href="new_user.php">戻る</a>
                     </div>
-                </div>
+                </li>
+                <!-- 入力された内容が正しいか確認-->
+                <form action="new_userFin.php" method="post">
+                    <?php
+                        if($isErr == false) {
+                            echo '<li class="list-group-item border-0"><div class="row">';
+                            echo '<button class="changebtn btn btn-outline-ligth col-auto" value="submit">登録する</button>';
+                            echo '</div></li>';
+                            echo '<input type="hidden" value='.$_POST['gender'].' name="gender">';
+                            echo '<input type="hidden" value='.$_POST['year']."-".sprintf('%02d', $_POST['month'])."-".sprintf('%02d', $_POST['day']).' name="date">';
+                            echo '<input type="hidden" value='.$_POST['sei'].$_POST['mei'].' name="name">';
+                            echo '<input type="hidden" value='.$_POST['mail'].' name="mail">';
+                            echo '<input type="hidden" value='.$_POST['pass'].' name="pass">';
+                            echo '<input type="hidden" value='.$_POST['address'].' name="address">';
+                        }
+                    ?>
+                </form>
             </ul>
         </div>
     </div>

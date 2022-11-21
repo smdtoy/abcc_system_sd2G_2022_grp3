@@ -257,10 +257,11 @@
                 </li>
                     </div>
                 </li>
-                <div class="row">
-                    <input type="submit" class="nextbtn btn btn-outline-ligth col-auto" value="次へ">
-                </div>
-
+                <li class="list-group-item">
+                	<div class="row">
+                    	<input type="submit" class="nextbtn btn btn-outline-ligth col-auto" value="次へ">
+                	</div>
+				</li>
             </ul>
         </div>
     </div>
