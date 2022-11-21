@@ -115,7 +115,7 @@
     $dbmng = new DBManager();
     $searchArray = $dbmng->getShohinByName($_POST['name'])
     foreach($searchArrsy as $row){
-        echo"$row[shohinname]";
+        echo"$row[shohinid]";
     }
     ?>
 </body>
