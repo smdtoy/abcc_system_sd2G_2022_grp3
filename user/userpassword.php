@@ -41,7 +41,12 @@
                         </div>
                     </div>
                 </li>
-            <a class="changebtn btn btn-outline-ligth" href="userpasswordFin.php">変更する</a>
+                <li class="list-group-item">
+                    <div class="row">
+                        <a class="changebtn btn btn-outline-ligth col-auto" href="userpasswordFin.php">変更する</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 

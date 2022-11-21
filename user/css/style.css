@@ -39,7 +39,7 @@
 
 .changebtn {
     margin: 30px;
-    margin-left: auto;
+    margin: auto;
     width: 300px;
     padding: 10px;
     background-color: #80B2FF;
@@ -48,7 +48,7 @@
 
 .nextbtn {
     margin: 30px;
-    margin-left: auto;
+    margin: auto;
     width: 300px;
     padding: 10px;
     background-color: #909090;
@@ -57,7 +57,7 @@
 
 .backbtn {
     margin: 30px;
-    margin-right: auto;
+    margin: auto;
     width: 300px;
     padding: 10px;
     background-color: #909090;

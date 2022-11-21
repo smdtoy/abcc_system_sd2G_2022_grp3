@@ -93,8 +93,11 @@
                         </div>
                     </div>
                 </li>
-
-                <a class="nextbtn btn btn-outline-ligth" href="userchangeCheck.php">次へ</a>
+                <li class="list-group-item">
+                    <div class="row">
+                        <a class="nextbtn btn btn-outline-ligth col-auto" href="userchangeCheck.php">次へ</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
