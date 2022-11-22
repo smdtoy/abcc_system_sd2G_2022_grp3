@@ -27,48 +27,128 @@
                 <li class="list-group-item seibetu">
                     <div class="row">
                         <p class="col-md-2">性別</p>
-                        <div class="col-md-8">男性or女性</div>
+                        <div class="col-md-8">
+                            <?php 
+                                $isErr = false;
+                                if(!isset($_POST['gender'])) {
+                                    echo '<p class="error">性別が選択されていません</p>';
+                                    $isErr = true;
+                                } else {
+                                    echo $_POST['gender'];
+                                }
+                            ?>
+                        </div>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row">
                         <p class="col-md-2">生年月日</p>
-                        <div class="col-md-8">0000年 0月 0日</div>
+                        <div class="col-md-8">
+                            <?php
+                                if(!checkdate(($_POST['month']), ($_POST['day']), ($_POST['year']))) {
+                                    echo '<p class="error">存在しない生年月日です';
+                                    $isErr = true;
+                                } else {
+                                    $date = $_POST['year'].sprintf('%02d', $_POST['month']).sprintf('%02d', $_POST['day']);
+                                    $today = date('Ymd');
+                                    $is20 = floor(($today - $date) / 10000);
+                                    if($is20 < 20) {
+                                        echo '<p class="error">二十歳未満です';
+                                        $isErr = true;
+                                    } else {
+                                        echo $_POST['year']."年 ".$_POST['month']."月 ".$_POST['day']."日";
+                                    }
+                                }
+                            ?>
+                        </div>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row">
                         <p class="col-md-2">氏名</p>
-                        <div class="col-md-8">ABC太郎</div>
+                        <div class="col-md-8">
+                            <?php
+                                if(empty($_POST['sei']) || empty($_POST['mei'])) {
+                                    echo '<p class="error">名前が入力されていません';
+                                    $isErr = true;
+                                } else {
+                                    echo $_POST['sei']." ".$_POST['mei'];
+                                }
+                            ?>
+                        </div>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row">
                         <p class="col-md-2">メールアドレス</p>
-                        <div class="col-md-8">＊＊＊＊＊@example.jp</div>
+                        <div class="col-md-8">
+                            <?php
+                                $mail = $_POST['mail'];
+                                if (!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $mail)) {
+                                    echo '<p class="error">正しいメールアドレスを入力してください<br>';
+                                    $isErr = true;
+                                } else {
+                                    echo $_POST['mail'];
+                                }
+                            ?>
+                        </div>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row">
                         <p class="col-md-2">パスワード</p>
-                        <div class="col-md-8">＊＊＊＊＊</div>
+                        <div class="col-md-8">
+                            <?php
+                                if(empty($_POST['pass'])) {
+                                    echo '<p class="error">パスワードが入力されていません<br>';
+                                    $isErr = true;
+                                } else {
+                                    echo $_POST['pass'];
+                                }
+                            ?>
+                        </div>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row">
                         <p class="col-md-2">住所</p>
-                        <div class="col-md-8">◯◯県　◯◯市　◯◯◯</div>
+                        <div class="col-md-8">
+                            <?php
+                                if(empty($_POST['address'])) {
+                                    echo '<p class="error">住所が入力されていません<br>';
+                                    $isErr = true;
+                                } else {
+                                    echo $_POST['address'];
+                                }
+                            ?>
+                        </div>
                     </div>
                 </li>
                 <li class="list-group-item">
-                <div class="row">
-                    <a class="backbtn btn btn-outline-ligth col-auto" href="userchange.php">戻る</a>
-                    <a class="changebtn btn btn-outline-ligth col-auto" href="#">変更する</a>
-                </div>
+                    <div class="row">
+                        <a class="backbtn btn btn-outline-ligth col-auto" href="userChange.php">戻る</a>
+                    </div>
                 </li>
+                <!-- 入力された内容が正しいか確認-->
+                <form action="userChangeFin.php" method="post">
+                    <?php
+                        if($isErr == false) {
+                            echo '<li class="list-group-item border-0"><div class="row">';
+                            echo '<button class="changebtn btn btn-outline-ligth col-auto" value="submit">登録する</button>';
+                            echo '</div></li>';
+                            echo '<input type="hidden" value='.$_POST['gender'].' name="gender">';
+                            echo '<input type="hidden" value='.$_POST['year']."-".sprintf('%02d', $_POST['month'])."-".sprintf('%02d', $_POST['day']).' name="date">';
+                            echo '<input type="hidden" value='.$_POST['sei'].$_POST['mei'].' name="name">';
+                            echo '<input type="hidden" value='.$_POST['mail'].' name="mail">';
+                            echo '<input type="hidden" value='.$_POST['pass'].' name="pass">';
+                            echo '<input type="hidden" value='.$_POST['address'].' name="address">';
+                        }
+                    ?>
+                </form>
             </ul>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

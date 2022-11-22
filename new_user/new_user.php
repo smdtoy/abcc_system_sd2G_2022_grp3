@@ -255,8 +255,6 @@
                         </div>
                     </div>
                 </li>
-                    </div>
-                </li>
                 <li class="list-group-item">
                 	<div class="row">
                     	<input type="submit" class="nextbtn btn btn-outline-ligth col-auto" value="次へ">

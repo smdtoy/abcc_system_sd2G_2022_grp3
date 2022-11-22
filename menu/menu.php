@@ -58,7 +58,7 @@
                         <a class="nav-link active" href="../user/user.php">ユーザー設定</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../user/userpassword.php">パスワード変更</a>
+                        <a class="nav-link active" href="../user/userPassword.php">パスワード変更</a>
                     </li>
                 </ul>
             </div>

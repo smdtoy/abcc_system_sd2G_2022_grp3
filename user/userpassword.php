@@ -43,7 +43,7 @@
                 </li>
                 <li class="list-group-item">
                     <div class="row">
-                        <a class="changebtn btn btn-outline-ligth col-auto" href="userpasswordFin.php">変更する</a>
+                        <a class="changebtn btn btn-outline-ligth col-auto" href="userPasswordFin.php">変更する</a>
                     </div>
                 </li>
             </ul>

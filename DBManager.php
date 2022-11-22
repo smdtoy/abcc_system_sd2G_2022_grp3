@@ -79,7 +79,7 @@ class DBManager {
     public function getUserTblByUid($getuid) {
         $pdo = $this -> dbConnect();
         $sql = "SELECT * FROM user_tbl WHERE user_id = ?";
-        $ps = $pdo -> prerare($sql);
+        $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1, $getuid, PDO::PARAM_STR);
         $ps -> execute();
         $searchArray = $ps -> fetchAll();

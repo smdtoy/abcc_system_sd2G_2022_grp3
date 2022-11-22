@@ -16,7 +16,7 @@
 
 </head>
 <body>
-    <?php include "../header/header.php" ?>
+    <?php include "../menu/menu.php" ?>
     <div class="img">
     <ul class="slider">
   <li><img src="hyakunenn.png" alt=""></li>
