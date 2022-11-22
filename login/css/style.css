@@ -33,3 +33,12 @@
   background-color: #80B2FF;
   color: white;
 }
+
+.newMemberbtn {
+  margin: 30px;
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+  background-color: #ffc06b;
+  color: white;
+}

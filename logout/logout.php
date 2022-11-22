@@ -14,17 +14,32 @@
 </head>
 <body>
     <?php include "../menu/menu.php" ?>
-    <h1>ログアウト</h1>
 
-    <div class="logout">
-    <div class="text">
-    <p>本当にログアウトしますか</p>
+    <div class="card border-0 logout-title-card">
+        <div class="card-body">
+            <h1 class="card-title">ログアウト</h1>
+        </div>
     </div>
-    <div class="log">
-    <button type="submit" onclick="location.href='../top/top.php'">キャンセル</button>
-    <button type="submit" onclick="location.href='logout_fin.php'">ログアウト</button>
-    </div>
-    </div>
+
+    <form action="logoutFin.php" method="post">
+        <div class="card logout-card">
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0">
+                        <div class="row">
+                            <h2 class="logoutCheck">本当にログアウトしますか</h2>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <a class="cancelbtn btn btn-outline-ligth col-auto" href="../top/top.php">キャンセル</a>
+                            <button type="submit" class="logoutbtn btn btn-outline-ligth col-auto">ログアウト</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

@@ -1,26 +1,39 @@
-h1{
-   margin-top: 40px;
-   margin-left: 100px;
+.logout-title-card {
+  text-align:center;
+  padding: 20px;
 }
 
-.logout{
+.logout-card {
+  background-color: #F0F0F0;
+  margin: auto;
+  width: 80%;
+}
+
+.list-group-item {
+  background-color: #F0F0F0;
+  padding: 30px 20px 30px 20px;
+  font-size: 120%;
+}
+
+.logoutCheck {
+    margin: 30px;
     text-align: center;
-    margin-top: 80px;
-    display:inline-block;
-    margin-left: 30%;
-    height: 350px;
-    width: 550px;
-    background-color:silver;
 }
 
-.text{
-    margin-top: 50px;
-    font-size: 200%;
-}
-.log{
-    margin-top: 150px;
+.cancelbtn {
+    margin: 30px;
+    margin: auto;
+    width: 300px;
+    padding: 10px;
+    background-color: #909090;
+    color: white;
 }
 
-.log button:first-of-type{
-    margin-right: 50px;
+.logoutbtn {
+  margin: 30px;
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+  background-color: #FF626B;
+  color: white;
 }

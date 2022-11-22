@@ -19,6 +19,23 @@ class DBManager {
         $ps -> execute();
     }
 
+    // ログイン機能
+    public function loginCheck($getMail, $getPass) {
+        $pdo = $this -> dbConnect();
+        $sql = "SELECT * FROM user_tbl WHERE mail_address = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps->bindValue(1, $getMail, PDO::PARAM_STR);
+        $ps->execute();
+        $searchArray = $ps -> fetchAll();
+        foreach($searchArray as $row) {
+            if(password_verify($getPass, $row['password']) == true) {
+                return $searchArray;
+            } else {
+                return "";
+            }
+        }
+    }
+
     //商品検索(商品ID)
     public function getShohinById($getShohinId) {
         $pdo = $this -> dbConnect();
