@@ -108,10 +108,15 @@ class DBManager {
     }
 
     //ユーザー登録内容変更
-    public function changeUserTbl() {
+    public function updateUserTbl($getUserID, $getName, $getMail, $getBirthday, $getGender, $getAddress) {
         $pdo = $this -> dbConnect();
-        $sql = "UPDATE user_tbl SET WHERE user_id = ?";
-        $ps -> bindValue(1, PDO::PARAM_);
+        $sql = "UPDATE user_tbl SET user_name = ?, mail_address = ?, birthday = ?, gender = ?, address = ? WHERE user_id = ?";
+        $ps -> bindValue(1, $getName, PDO::PARAM_STR);
+        $ps -> bindValue(2, $getMail, PDO::PARAM_STR);
+        $ps -> bindValue(3, $getBirthday, PDO::PARAM_STR);
+        $ps -> bindValue(4, $getGender, PDO::PARAM_STR);
+        $ps -> bindValue(1, $getUserID, PDO::PARAM_INT);
+        $ps -> execute();
     }
 
     //ユーザーパスワード変更

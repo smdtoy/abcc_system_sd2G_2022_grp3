@@ -14,7 +14,7 @@
 </head>
 <body>
     <?php
-        require_once '../sesstion.php';
+        require_once '../session.php';
         $result = searchUser();
     ?>
 

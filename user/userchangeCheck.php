@@ -13,6 +13,19 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <?php
+        require_once '../session.php';
+        $result = searchUser();
+    ?>
+
+    <?php
+        require_once '../DBManager.php';
+        $dbmng = new DBManager();
+        $searchArray = $dbmng -> getUserTblByUid($_SESSION['userId']);
+        foreach($searchArray as $row) {
+        }
+    ?>
+
     <?php include "../menu/menu.php" ?>
 
     <div class="card border-0 user-title-card">
@@ -96,21 +109,6 @@
                 </li>
                 <li class="list-group-item">
                     <div class="row">
-                        <p class="col-md-2">パスワード</p>
-                        <div class="col-md-8">
-                            <?php
-                                if(empty($_POST['pass'])) {
-                                    echo '<p class="error">パスワードが入力されていません<br>';
-                                    $isErr = true;
-                                } else {
-                                    echo $_POST['pass'];
-                                }
-                            ?>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
                         <p class="col-md-2">住所</p>
                         <div class="col-md-8">
                             <?php
@@ -119,6 +117,25 @@
                                     $isErr = true;
                                 } else {
                                     echo $_POST['address'];
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </li>
+                <hr>
+                <li class="list-group-item">
+                    <div class="row">
+                        <p class="col-md-2">パスワード</p>
+                        <div class="col-md-8">
+                            <?php
+                                if(empty($_POST['pass'])) {
+                                    echo '<p class="error">パスワードが入力されていません<br>';
+                                    $isErr = true;
+                                } else if(password_verify($_POST['pass'], $row['password']) == false) {
+                                    echo '<p class="error">パスワードが正しくありません<br>';
+                                    $isErr = true;
+                                } else {
+                                    echo "OK";
                                 }
                             ?>
                         </div>
@@ -140,7 +157,6 @@
                             echo '<input type="hidden" value='.$_POST['year']."-".sprintf('%02d', $_POST['month'])."-".sprintf('%02d', $_POST['day']).' name="date">';
                             echo '<input type="hidden" value='.$_POST['sei'].$_POST['mei'].' name="name">';
                             echo '<input type="hidden" value='.$_POST['mail'].' name="mail">';
-                            echo '<input type="hidden" value='.$_POST['pass'].' name="pass">';
                             echo '<input type="hidden" value='.$_POST['address'].' name="address">';
                         }
                     ?>
