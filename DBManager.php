@@ -95,16 +95,22 @@ class DBManager {
     }
 
     //商品カート登録
-    public function insertCartTblByUid($getuid) {
+    public function insertCartTblByUid($getUserid,$getShohiniD,$getShohinTotal) {
         $pdo = $this -> dbConnect();
-        $sql = "SELECT ";
+        $sql = "INSERT INTO SCtbl(user_id,shohin_id,shohin_total) VALUES(?,?,?)";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1,$getUserid,PDO::PARAM_STR);
+        $ps -> bindValue(2,$getShohiniD,PDO::PARAM_STR);
+        $ps -> bindValue(3,$getShohinTotal,PDO::PARAM_INT);
+        $ps -> execute();
     }
 
 
     //商品カート削除
-    public function deleteCartTblByUid($getuid) {
+    public function deleteCartTblByUid($getDeleteShohinCart) {
         $pdo = $this -> dbConnect();
-
+        $sql = "DELETE FROM SCtbl WhERE  = ?,;"
+        $ps -> bindValue(1,$getDeleteShohinCart,PDO::PARAM_STR);
     }
 
     //ユーザー登録内容変更
