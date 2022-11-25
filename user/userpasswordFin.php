@@ -14,16 +14,13 @@
 </head>
 <body>
     <?php
-        require_once '../sesstion.php';
-        $result = searchUser();
+        session_start();
+        require_once '../DBManager.php';
+        $dbmng = new DBManager();
+        $searchArray = $dbmng -> updateUserTblByPass($_SESSION['userId'], $_POST['newPass']);
     ?>
-    <div class="container-fluid" id="menuber">
-        <div class="row">
-            <div class="col-md-1 offset-md-1">
-                <a class="navbar-brand" href="../top/top.php" id="logo">SAKETOWN</a>
-            </div>
-        </div>
-    </div>
+
+    <?php include "../menu/menu.php" ?>
 
     <div class="card border-0 user-center-card">
         <div class="card-body">

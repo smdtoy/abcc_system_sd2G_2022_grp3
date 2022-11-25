@@ -5,7 +5,7 @@ class DBManager {
         return $pdo;
     }
 
-    //新規会員登録
+    // 新規会員登録
     public function insertUserTbl($getName, $getMail, $getPass, $getBirthday, $getGender, $getAddress) {
         $pdo = $this -> dbConnect();
         $sql = "INSERT INTO user_tbl(user_name, mail_address, password, birthday, gender, address) VALUES(?, ?, ?, ?, ?, ?)";
@@ -16,6 +16,41 @@ class DBManager {
         $ps -> bindValue(4, $getBirthday, PDO::PARAM_STR);
         $ps -> bindValue(5, $getGender, PDO::PARAM_STR);
         $ps -> bindValue(6, $getAddress, PDO::PARAM_STR);
+        $ps -> execute();
+    }
+
+    // ユーザー登録内容表示
+    public function getUserTblByUid($getuid) {
+        $pdo = $this -> dbConnect();
+        $sql = "SELECT * FROM user_tbl WHERE user_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getuid, PDO::PARAM_STR);
+        $ps -> execute();
+        $searchArray = $ps -> fetchAll();
+        return $searchArray;
+    }
+
+    // ユーザー登録内容変更
+    public function updateUserTbl($getUserID, $getName, $getMail, $getBirthday, $getGender, $getAddress) {
+        $pdo = $this -> dbConnect();
+        $sql = "UPDATE user_tbl SET user_name = ?, mail_address = ?, birthday = ?, gender = ?, address = ? WHERE user_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getName, PDO::PARAM_STR);
+        $ps -> bindValue(2, $getMail, PDO::PARAM_STR);
+        $ps -> bindValue(3, $getBirthday, PDO::PARAM_STR);
+        $ps -> bindValue(4, $getGender, PDO::PARAM_STR);
+        $ps -> bindValue(5, $getAddress, PDO::PARAM_STR);
+        $ps -> bindValue(6, $getUserID, PDO::PARAM_INT);
+        $ps -> execute();
+    }
+
+    // ユーザーパスワード変更
+    public function updateUserTblByPass($getUserID, $getNewPass) {
+        $pdo = $this -> dbConnect();
+        $sql = "UPDATE user_tbl SET password = ? WHERE user_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, password_hash($getNewPass, PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $ps -> bindValue(2, $getUserID, PDO::PARAM_INT);
         $ps -> execute();
     }
 
@@ -60,11 +95,11 @@ class DBManager {
     }
 
     //商品検索(県別)
-    public function getShohinTblByKen($getkeNname) {
+    public function getShohinTblByKen($getKenName) {
         $pdo = $this -> dbConnect();
-        $sql =  "SELECT * FROM shohin_tbl WHERE kyushu = ? ORDER BY shohin_id";
+        $sql =  "SELECT * FROM shohin_tbl WHERE ken_name = ? ORDER BY shohin_id";
         $ps = $pdo -> prepare($sql);
-        $ps -> bindValue(1, $getkenName, PDO::PARAM_INT);
+        $ps -> bindValue(1, $getKenName, PDO::PARAM_STR);
         $ps -> execute();
         $searchArray = $ps -> fetchAll();
         return $searchArray;
@@ -73,17 +108,6 @@ class DBManager {
     //商品検索
     public function getShohinTblByAttribute() {
 
-    }
-
-    //ユーザー登録内容表示
-    public function getUserTblByUid($getuid) {
-        $pdo = $this -> dbConnect();
-        $sql = "SELECT * FROM user_tbl WHERE user_id = ?";
-        $ps = $pdo -> prepare($sql);
-        $ps -> bindValue(1, $getuid, PDO::PARAM_STR);
-        $ps -> execute();
-        $searchArray = $ps -> fetchAll();
-        return $searchArray;
     }
 
     //商品カート表示
@@ -111,28 +135,6 @@ class DBManager {
         $pdo = $this -> dbConnect();
         $sql = "DELETE FROM SCtbl WhERE  = ?,;"
         $ps -> bindValue(1,$getDeleteShohinCart,PDO::PARAM_STR);
-    }
-
-    //ユーザー登録内容変更
-    public function updateUserTbl($getUserID, $getName, $getMail, $getBirthday, $getGender, $getAddress) {
-        $pdo = $this -> dbConnect();
-        $sql = "UPDATE user_tbl SET user_name = ?, mail_address = ?, birthday = ?, gender = ?, address = ? WHERE user_id = ?";
-        $ps = $pdo -> prepare($sql);
-        $ps -> bindValue(1, $getName, PDO::PARAM_STR);
-        $ps -> bindValue(2, $getMail, PDO::PARAM_STR);
-        $ps -> bindValue(3, $getBirthday, PDO::PARAM_STR);
-        $ps -> bindValue(4, $getGender, PDO::PARAM_STR);
-        $ps -> bindValue(5, $getAddress, PDO::PARAM_STR);
-        $ps -> bindValue(6, $getUserID, PDO::PARAM_INT);
-        $ps -> execute();
-    }
-
-    //ユーザーパスワード変更
-    public function changeUserTblByPass($getNewPass) {
-        $pdo = $this -> dbConnect();
-        $sql = "UPDATE user_tbl SET password = ? WHERE user_id = ?";
-        $ps -> bindValue(1, $getNewPass, PDO::PARAM_STR);
-        
     }
 }
 ?>
