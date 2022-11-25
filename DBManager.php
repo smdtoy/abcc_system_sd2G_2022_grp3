@@ -111,11 +111,13 @@ class DBManager {
     public function updateUserTbl($getUserID, $getName, $getMail, $getBirthday, $getGender, $getAddress) {
         $pdo = $this -> dbConnect();
         $sql = "UPDATE user_tbl SET user_name = ?, mail_address = ?, birthday = ?, gender = ?, address = ? WHERE user_id = ?";
+        $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1, $getName, PDO::PARAM_STR);
         $ps -> bindValue(2, $getMail, PDO::PARAM_STR);
         $ps -> bindValue(3, $getBirthday, PDO::PARAM_STR);
         $ps -> bindValue(4, $getGender, PDO::PARAM_STR);
-        $ps -> bindValue(1, $getUserID, PDO::PARAM_INT);
+        $ps -> bindValue(5, $getAddress, PDO::PARAM_STR);
+        $ps -> bindValue(6, $getUserID, PDO::PARAM_INT);
         $ps -> execute();
     }
 
