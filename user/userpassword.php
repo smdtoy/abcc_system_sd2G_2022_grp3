@@ -14,7 +14,7 @@
 </head>
 <body>
     <?php
-        require_once '../sesstion.php';
+        require_once '../session.php';
         $result = searchUser();
     ?>
 
@@ -26,36 +26,36 @@
         </div>
     </div>
 
-    <div class="card user-card">
-        <div class="card-body">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-md-10 offset-md-1">
-                            <input type="password" class="form-control" id="inputOldPass" placeholder="現在のパスワード">
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-md-10 offset-md-1">
-                            <input type="password" class="form-control" id="inputNewPass" placeholder="新しいパスワード">
-                        </div>
-                        <div class="col-md-10 offset-md-1">
-                            <input type="password" class="form-control" id="inputNewPass2" placeholder="新しいパスワード（確認用）">
-                        </div>
-                    </div>
-                </li>
-                <form action="userPassword.php" method="post">
+    <form action="userPasswordCheck.php" method="post">
+        <div class="card user-card">
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
                     <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <input type="password" class="form-control oldPass" placeholder="現在のパスワード" name="oldPass">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <input type="password" class="form-control newPass" placeholder="新しいパスワード" name="newPass">
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input type="password" class="form-control newPass2" placeholder="新しいパスワード（確認用）" name="newPass2">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item border-0">
                         <div class="row">
                             <button type="submit" class="changebtn btn btn-outline-ligth col-auto">変更する</button>
                         </div>
                     </li>
-                </form>
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
+    </form>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

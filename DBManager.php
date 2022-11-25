@@ -48,7 +48,7 @@ class DBManager {
     public function updateUserTblByPass($getUserID, $getNewPass) {
         $pdo = $this -> dbConnect();
         $sql = "UPDATE user_tbl SET password = ? WHERE user_id = ?";
-        $ps -> $pdo -> prepare($sql);
+        $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1, password_hash($getNewPass, PASSWORD_DEFAULT), PDO::PARAM_STR);
         $ps -> bindValue(2, $getUserID, PDO::PARAM_INT);
         $ps -> execute();

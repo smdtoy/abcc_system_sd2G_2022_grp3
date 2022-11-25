@@ -17,7 +17,7 @@
         session_start();
         require_once '../DBManager.php';
         $dbmng = new DBManager();
-        $searchArray = $dbmng -> updateUserTblByPass($_SESSION['userId'], $getNewPass);
+        $searchArray = $dbmng -> updateUserTblByPass($_SESSION['userId'], $_POST['newPass']);
     ?>
 
     <?php include "../menu/menu.php" ?>

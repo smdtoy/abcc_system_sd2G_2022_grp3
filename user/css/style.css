@@ -19,18 +19,18 @@
     font-size: 120%;
 }
 
-#inputOldPass{
+.oldPass{
     height: 60px;
     font-size: large;
 }
 
-#inputNewPass {
+.newPass {
     height: 60px;
     font-size: large;
     margin-bottom: 20px;
 }
 
-#inputNewPass2 {
+.newPass2 {
     height: 60px;
     font-size: large;
     margin-bottom: 20px;
