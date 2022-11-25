@@ -151,7 +151,7 @@
                     <?php
                         if($isErr == false) {
                             echo '<li class="list-group-item border-0"><div class="row">';
-                            echo '<button class="changebtn btn btn-outline-ligth col-auto" value="submit">登録する</button>';
+                            echo '<button type="submit" class="changebtn btn btn-outline-ligth col-auto">登録する</button>';
                             echo '</div></li>';
                             echo '<input type="hidden" value='.$_POST['gender'].' name="gender">';
                             echo '<input type="hidden" value='.$_POST['year']."-".sprintf('%02d', $_POST['month'])."-".sprintf('%02d', $_POST['day']).' name="date">';
