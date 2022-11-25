@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <?php
+        require_once '../sesstion.php';
+        $result = searchUser();
+    ?>
+
     <?php include "../menu/menu.php" ?>
 
     <div class="card border-0 user-title-card">
@@ -41,11 +46,13 @@
                         </div>
                     </div>
                 </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <a class="changebtn btn btn-outline-ligth col-auto" href="userPasswordFin.php">変更する</a>
-                    </div>
-                </li>
+                <form action="userPassword.php" method="post">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <button type="submit" class="changebtn btn btn-outline-ligth col-auto">変更する</button>
+                        </div>
+                    </li>
+                </form>
             </ul>
         </div>
     </div>
