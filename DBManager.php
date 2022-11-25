@@ -95,11 +95,11 @@ class DBManager {
     }
 
     //商品検索(県別)
-    public function getShohinTblByKen($getkeNname) {
+    public function getShohinTblByKen($getKenName) {
         $pdo = $this -> dbConnect();
-        $sql =  "SELECT * FROM shohin_tbl WHERE kyushu = ? ORDER BY shohin_id";
+        $sql =  "SELECT * FROM shohin_tbl WHERE ken_name = ? ORDER BY shohin_id";
         $ps = $pdo -> prepare($sql);
-        $ps -> bindValue(1, $getkenName, PDO::PARAM_INT);
+        $ps -> bindValue(1, $getKenName, PDO::PARAM_STR);
         $ps -> execute();
         $searchArray = $ps -> fetchAll();
         return $searchArray;

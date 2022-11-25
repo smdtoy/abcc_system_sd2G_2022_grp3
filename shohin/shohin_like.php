@@ -28,7 +28,7 @@
                 <img src="..." alt="...">
                 <div>aaa</div>
             </div>
-            <div class="card col-md-4 col-sm-6">
+            <div class="card col-md-4 col-6">
                 <img src="..." alt="...">
                 <div>aaa</div>
             </div>
