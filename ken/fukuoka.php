@@ -35,11 +35,12 @@
                 // 商品枠組み
                 echo '<div class="card col-md-4 col-sm-6">';
                 // 商品写真表示
-                // echo '<img class="photo" src="../img/'.$row['shohin_name'].'.jpg';
+                echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">';
                 // 商品名表示
                 echo '<div class="shohiName">'.$row['shohin_name'].'</div>';
+                echo'<div class="youryo">'.$row['capacity'].'ml'.'</div>';
                 // 商品金額表示
-                echo '<div class="shohinPrice">'.$row['price'].'</div>';
+                echo '<div class="shohinPrice">'.$row['price'].'円'.'</div>';
                 echo '</div>';
             }
         ?>

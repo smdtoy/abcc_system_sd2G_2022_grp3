@@ -17,9 +17,18 @@
 </head>
 <body>
     <?php include "../menu/menu.php" ?>
+
+    <?php
+        require_once '../DBManager.php';
+        $dbmng = new DBManager();
+        $searchArray = $dbmng ->  getShohinById(1);
+        foreach($searchArray as $row) {
+        }
+    ?>
+
     <div class="img">
     <ul class="slider">
-  <li><img src="hyakunenn.png" alt=""></li>
+  <li><a href="../shohin/shohin_detail.php"><img src="hyakunenn.png" alt=""></a></li>
   <li><img src="akakirisima.png" alt=""></li>
   <li><img src="aka.png" alt=""></li>
   <li><img src="aka.png" alt=""></li>
@@ -34,7 +43,23 @@
 </div>
 
     <h1>商品一覧</h1>
-
+    <div class="card shohin-card border-0">
+        <?php
+            foreach($searchArray as $row) {
+                // 商品枠組み
+                echo '<div class="card col-md-4 col-sm-6">';
+                // 商品写真表示
+                echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">';
+                // 商品名表示
+                echo '<div class="shohiName">'.$row['shohin_name'].'</div>';
+                //商品容量表示
+                echo'<div class="youryo">'.$row['capacity'].'ml'.'</div>';
+                // 商品金額表示
+                echo '<div class="shohinPrice">'.$row['price'].'円'.'</div>';
+                echo '</div>';
+            }
+        ?>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
