@@ -34,18 +34,23 @@
 
     <div class="card shohin-card border-0">
         <div class="row">
-            <div class="card col-md-4 col-sm-6">
-                <img src="..." alt="...">
-                <div>aaa</div>
-            </div>
-            <div class="card col-md-4 col-sm-6">
-                <img src="..." alt="...">
-                <div>aaa</div>
-            </div>
-            <div class="card col-md-4 col-sm-6">
-                <img src="..." alt="...">
-                <div>aaa</div>
-            </div>
+        <?php
+            foreach($searchArray as $row) {
+                // 商品枠組み
+                echo '<div class="card col-md-4 col-sm-6">';
+                // 詳細
+                echo '<a href="../shohin/shohin_detail.php?id='.$row['shohin_id'].'">';
+                // 商品写真表示
+                echo '<img class="photo-word" src="../img/'.$row['img_pas'].'.jpg">';
+                // 商品名表示
+                echo '<div class="shohinName-word">'.$row['shohin_name'].'</div>';
+                echo '</a>';
+                echo'<div class="youryo">'.$row['capacity'].'ml'.'</div>';
+                // 商品金額表示
+                echo '<div class="shohinPrice-word">'.$row['price'].'円'.'</div>';
+                echo '</div>';
+            }
+        ?>
         </div>
     </div>
 

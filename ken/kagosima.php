@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>福岡県</title>
+    <title>鹿児島県</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,11 +36,11 @@
                 // 商品枠組み
                 echo '<div class="card col-md-4 col-sm-6">';
                 // 詳細
-                echo '<a href="../shohin/shohin_detail.php?id="'.$row['shohin_id'].'>';
+                echo '<a href="../shohin/shohin_detail.php?id='.$row['shohin_id'].'">';
                 // 商品写真表示
                 echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">';
                 // 商品名表示
-                echo '<div class="shohiName">'.$row['shohin_name'].'</div>';
+                echo '<div class="shohinName">'.$row['shohin_name'].'</div>';
                 echo '</a>';
                 echo'<div class="youryo">'.$row['capacity'].'ml'.'</div>';
                 // 商品金額表示

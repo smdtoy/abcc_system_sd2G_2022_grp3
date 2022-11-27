@@ -16,33 +16,39 @@
     <?php include "../menu/menu.php" ?>
 
     <?php 
-    require 'DBManager.php';
-    $dbmng = new DBManager();
-    $searchArray = $dbmng -> getShohinTblById($_GET['id']);
-    foreach($searchArrsy as $row){
-    }
+        require '../DBManager.php';
+        $dbmng = new DBManager();
+        $searchArray = $dbmng -> getShohinTblById($_GET['id']);
+        foreach($searchArray as $row){
+        }
     ?>
 
-    <div class="card shohin-card border-0">
+    <div class="card shohin-detail-card border-0">
         <div class="row">
-        <?php
-            foreach($searchArray as $row) {
-                // 商品枠組み
-                echo '<div class="card col-md-4 col-sm-6">';
-                // 詳細
-                echo '<a href="../shohin/shohin_detail.php?id="'.$row['shohin_id'].'>';
-                // 商品写真表示
-                echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">';
-                // 商品名表示
-                echo '<div class="shohiName">'.$row['shohin_name'].'</div>';
-                echo '</a>';
-                echo'<div class="youryo">'.$row['capacity'].'ml'.'</div>';
-                // 商品金額表示
-                echo '<div class="shohinPrice">'.$row['price'].'円'.'</div>';
-                echo '</div>';
-            }
-        ?>
+            <div class="card shohin-photo-card border-0 col-md-5">
+                <?php echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">'; ?>
+            </div>
+            <div class="card shohin-d-card border-0 col-md-7">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0 shohinName"><?php echo $row['shohin_name']; ?></li>
+                    <li class="list-group-item border-0 shohinPrice">￥ <?php echo $row['price']; ?></li>
+                    <div class="row">
+                        <li class="list-group-item border-0 col-md-4 offset-4 shohinCapa">容量：<?php echo $row['capacity']; ?>ml</li>
+                        <li class="list-group-item border-0 col-md-4 offset-4 shohinAlcohol">アルコール度数：<?php echo $row['alcohol']; ?>%</li>
+                    </div>
+                    <li class="list-group-item shohinDetail"><div class="card shohin-detail"><?php echo $row['shohin_detail']; ?></li>
+                </ul>
+            </div>
         </div>
+        <form action="" method="post">
+            <li class="list-group-item border-0">
+                <div class="row">
+                    <a class="backbtn btn btn-outline-ligth col-auto" href="javascript:history.back()">戻る</a>
+                    <input type="submit" class="shopbtn btn btn-outline-ligth col-auto" value="購入する">
+                </div>
+            </li>
+        </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

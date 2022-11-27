@@ -14,7 +14,65 @@
 }
 
 .shohin-detail-card {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
     padding: 20px;
+}
+
+.shohin-photo-card {
+    height: 500px;
+}
+
+.photo {
+    height: 500px;
+    margin: auto;
+}
+
+.photo-word {
+    height: 300px;
+    margin: auto;
+}
+
+.shohinName {
+    font-size: 50px;
+}
+
+.shohinPrice {
+    font-size: 25px;
+}
+
+.shohinCapa {
+    font-size: 25px;
+}
+
+.shohinAlcohol {
+    font-size: 25px;
+}
+
+.shohin-detail {
+    height: 300px;
+    font-size: 20px;
+    margin: auto;
+}
+
+.shopbtn {
+    margin: 30px;
+    margin: auto;
+    width: 300px;
+    padding: 10px;
+    background-color: #80B2FF;
+    color: white;
+}
+
+.backbtn {
+    margin: 30px;
+    margin: auto;
+    width: 300px;
+    padding: 10px;
+    background-color: #909090;
+    color: white;
 }
 
 .deleteBtn {
