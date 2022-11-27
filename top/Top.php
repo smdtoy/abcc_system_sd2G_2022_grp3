@@ -21,7 +21,7 @@
     <?php
         require_once '../DBManager.php';
         $dbmng = new DBManager();
-        $searchArray = $dbmng ->  getShohinById(1);
+        $searchArray = $dbmng -> getShohinTblById(1);
         foreach($searchArray as $row) {
         }
     ?>

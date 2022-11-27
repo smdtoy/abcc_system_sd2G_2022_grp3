@@ -15,11 +15,19 @@
 <body>
     <?php include "../menu/menu.php" ?>
 
+    <?php 
+    require '../DBManager.php';
+    $dbmng = new DBManager();
+    $searchArray = $dbmng -> getShohinTblByWord($_POST['word']);
+    foreach($searchArray as $row){
+    }
+    ?>
+
     <div class="card border-0 shohin-title-card">
         <div class="card-body">
             <div class="row">
-                <h4 class="card-title col-auto">検索ワード：</h4>
-                <h2 class="col-auto">○○○○</h2>
+                <h2 class="card-title col-auto">検索ワード：</h2>
+                <h2 class="word-title col-auto"><?php echo $_POST['word']; ?></h2>
             </div>
         </div>
     </div>

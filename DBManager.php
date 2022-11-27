@@ -72,7 +72,7 @@ class DBManager {
     }
 
     //商品検索(商品ID)
-    public function getShohinById($getShohinId) {
+    public function getShohinTblById($getShohinId) {
         $pdo = $this -> dbConnect();
         $sql = "SELECT * FROM shohin_tbl WHERE shohin_id = ?";
         $ps = $pdo -> prepare($sql);
@@ -85,10 +85,11 @@ class DBManager {
     //商品検索(ワード)
     public function getShohinTblByWord($getShohinWord) {
         $pdo = $this -> dbConnect();
-        $sql =  "SELECT * FROM shohin_tbl WHERE shohin_name LIKE ? OR shohin_detail LIKE ? ORDER BY shohin_id";
+        $sql =  "SELECT * FROM shohin_tbl WHERE shohin_name LIKE ? OR shohin_detail LIKE ? OR ken_name LIKE ? ORDER BY shohin_id";
         $ps = $pdo -> prepare($sql);
-        $ps -> bindValue(1, '%'.$getShohinName.'%', PDO::PARAM_STR);
-        $ps -> bindValue(2, '%'.$getShohinName.'%', PDO::PARAM_STR);
+        $ps -> bindValue(1, '%'.$getShohinWord.'%', PDO::PARAM_STR);
+        $ps -> bindValue(2, '%'.$getShohinWord.'%', PDO::PARAM_STR);
+        $ps -> bindValue(3, '%'.$getShohinWord.'%', PDO::PARAM_STR);
         $ps -> execute();
         $searchArray = $ps -> fetchAll();
         return $searchArray;
@@ -133,8 +134,10 @@ class DBManager {
     //商品カート削除
     public function deleteCartTblByUid($getDeleteShohinCart) {
         $pdo = $this -> dbConnect();
-        $sql = "DELETE FROM SCtbl WhERE  = ?,;"
-        $ps -> bindValue(1,$getDeleteShohinCart,PDO::PARAM_STR);
+        $sql = "DELETE FROM SCtbl WHERE = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getDeleteShohinCart, PDO::PARAM_STR);
+        $ps -> execute();
     }
 }
 ?>

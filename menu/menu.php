@@ -9,7 +9,7 @@
             <div class="col-md-4 offset-md-2 col-6">
                 <form class="d-flex align-items-center" action="../shohin/shohin_word.php" method="post">
                     <div class="col-md-10">
-                        <input class="form-control" type="text" placeholder="Search">
+                        <input class="form-control" type="text" placeholder="Search" name="word">
                     </div>
                     <div class="col-md-2">
                         <button type="submit" class="btn btn-secondary"><i class="bi bi-search"></i></button>
@@ -76,7 +76,7 @@
                             <li><a class="dropdown-item" href="../ken/fukuoka.php">福岡県</a></li>
                             <li><a class="dropdown-item" href="../ken/saga.php">佐賀県</a></li>
                             <li><a class="dropdown-item" href="../ken/nagasaki.php">長崎県</a></li>
-                            <li><a class="dropdown-item" href="../ken/kumamoto">熊本県</a></li>
+                            <li><a class="dropdown-item" href="../ken/kumamoto.php">熊本県</a></li>
                             <li><a class="dropdown-item" href="../ken/miyazaki.php">宮崎県</a></li>
                             <li><a class="dropdown-item" href="../ken/ooita.php">大分県</a></li>
                             <li><a class="dropdown-item" href="../ken/kagosima.php">鹿児島県</a></li>

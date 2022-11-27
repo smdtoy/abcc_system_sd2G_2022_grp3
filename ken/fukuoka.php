@@ -23,27 +23,32 @@
         }
     ?>
 
-    <div class="card border-0 user-title-card">
+    <div class="card border-0 shohin-title-card">
         <div class="card-body">
             <h2 class="card-title">福岡県</h2>
         </div>
     </div>
 
     <div class="card shohin-card border-0">
+        <div class="row">
         <?php
             foreach($searchArray as $row) {
                 // 商品枠組み
                 echo '<div class="card col-md-4 col-sm-6">';
+                // 詳細
+                echo '<a href="../shohin/shohin_detail.php?id="'.$row['shohin_id'].'>';
                 // 商品写真表示
                 echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">';
                 // 商品名表示
                 echo '<div class="shohiName">'.$row['shohin_name'].'</div>';
+                echo '</a>';
                 echo'<div class="youryo">'.$row['capacity'].'ml'.'</div>';
                 // 商品金額表示
                 echo '<div class="shohinPrice">'.$row['price'].'円'.'</div>';
                 echo '</div>';
             }
         ?>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
