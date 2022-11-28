@@ -33,7 +33,7 @@
                     <div class="row">
                     <li class="list-group-item border-0 col-md-10 shohinName"><?php echo $row['shohin_name']; ?></li>
                     <li class="list-group-item border-0 col-md-2 shohinLike">
-                        <a  class="btn" href="shohin_detailFin.php?id=<?php echo $row['shohin_id'];?>"><i class="bi bi-suit-heart like"></i></a>
+                        <a  class="btn" href="shohin_detail.php?id=<?php echo $row['shohin_id'];?>"><i class="bi bi-suit-heart-fill likeFin"></i></a>
                     </li>
                     </div>
                     <li class="list-group-item border-0 shohinPrice">￥ <?php echo $row['price']; ?></li>

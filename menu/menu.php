@@ -36,9 +36,6 @@
                         <a class="nav-link active" href="../login/login.php">ログイン</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../new_user/new_user.php">新規会員登録</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" href="../logout/logout.php">ログアウト</a>
                     </li>
                     <li class="nav-item">
@@ -53,6 +50,9 @@
                 <ul class="navbar-nav me-auto mb-2">
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">ユーザー</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../new_user/new_user.php">新規会員登録</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="../user/user.php">ユーザー設定</a>
@@ -82,9 +82,6 @@
                             <li><a class="dropdown-item" href="../ken/kagosima.php">鹿児島県</a></li>
                             <li><a class="dropdown-item" href="../ken/kagosima.php">沖縄県</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../koumoku/koumoku.php">項目で探す</a>
                     </li>
                 </ul>
             </div>

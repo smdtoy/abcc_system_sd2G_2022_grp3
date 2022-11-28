@@ -36,7 +36,22 @@
 }
 
 .shohinName {
-    font-size: 50px;
+    font-size: 45px;
+}
+
+.shohinLike {
+    font-size: 45px;
+    float: right;
+}
+
+.like {
+    font-size: 45px;
+    color: #FF6999;
+}
+
+.likeFin {
+    font-size: 45px;
+    color: #FF6999;
 }
 
 .shohinPrice {
