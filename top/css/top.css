@@ -116,6 +116,11 @@ h1{
   /* background-color: #F0F0F0; */
   margin: auto;
   width: 95%;
+  background-color: rgb(255, 255, 255, 0);
+}
+
+.all-shohin-card {
+  background-color: rgb(255, 255, 255);
 }
 
 .shohin-center-card {

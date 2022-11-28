@@ -20,18 +20,18 @@ class DBManager {
     }
 
     // ユーザー登録内容表示
-    public function getUserTblByUid($getuid) {
+    public function getUserTblByUid($getUserId) {
         $pdo = $this -> dbConnect();
         $sql = "SELECT * FROM user_tbl WHERE user_id = ?";
         $ps = $pdo -> prepare($sql);
-        $ps -> bindValue(1, $getuid, PDO::PARAM_STR);
+        $ps -> bindValue(1, $getUserId, PDO::PARAM_STR);
         $ps -> execute();
         $searchArray = $ps -> fetchAll();
         return $searchArray;
     }
 
     // ユーザー登録内容変更
-    public function updateUserTbl($getUserID, $getName, $getMail, $getBirthday, $getGender, $getAddress) {
+    public function updateUserTbl($getUserId, $getName, $getMail, $getBirthday, $getGender, $getAddress) {
         $pdo = $this -> dbConnect();
         $sql = "UPDATE user_tbl SET user_name = ?, mail_address = ?, birthday = ?, gender = ?, address = ? WHERE user_id = ?";
         $ps = $pdo -> prepare($sql);
@@ -40,17 +40,17 @@ class DBManager {
         $ps -> bindValue(3, $getBirthday, PDO::PARAM_STR);
         $ps -> bindValue(4, $getGender, PDO::PARAM_STR);
         $ps -> bindValue(5, $getAddress, PDO::PARAM_STR);
-        $ps -> bindValue(6, $getUserID, PDO::PARAM_INT);
+        $ps -> bindValue(6, $getUserId, PDO::PARAM_INT);
         $ps -> execute();
     }
 
     // ユーザーパスワード変更
-    public function updateUserTblByPass($getUserID, $getNewPass) {
+    public function updateUserTblByPass($getUserId, $getNewPass) {
         $pdo = $this -> dbConnect();
         $sql = "UPDATE user_tbl SET password = ? WHERE user_id = ?";
         $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1, password_hash($getNewPass, PASSWORD_DEFAULT), PDO::PARAM_STR);
-        $ps -> bindValue(2, $getUserID, PDO::PARAM_INT);
+        $ps -> bindValue(2, $getUserId, PDO::PARAM_INT);
         $ps -> execute();
     }
 
@@ -71,7 +71,7 @@ class DBManager {
         }
     }
 
-    //商品検索(商品ID)
+    // 商品検索(商品ID)
     public function getShohinTblById($getShohinId) {
         $pdo = $this -> dbConnect();
         $sql = "SELECT * FROM shohin_tbl WHERE shohin_id = ?";
@@ -82,7 +82,7 @@ class DBManager {
         return $searchArray;
     }
 
-    //スライド商品
+    // スライド商品
     public function getShohinTblBySlider($getShohinSlider) {
         $pdo = $this -> dbConnect();
         $sql = "SELECT * FROM shohin_tbl WHERE slider = ?";
@@ -93,7 +93,7 @@ class DBManager {
         return $searchArray;
     }
 
-    //商品一覧
+    // 商品一覧
     public function getShohinTblBySake($getShohinSake) {
         $pdo = $this -> dbConnect();
         $sql = "SELECT * FROM shohin_tbl WHERE sake = ?";
@@ -103,7 +103,8 @@ class DBManager {
         $searchArray = $ps -> fetchAll();
         return $searchArray;
     }
-    //商品検索(ワード)
+
+    // 商品検索(ワード)
     public function getShohinTblByWord($getShohinWord) {
         $pdo = $this -> dbConnect();
         $sql =  "SELECT * FROM shohin_tbl WHERE shohin_name LIKE ? OR shohin_detail LIKE ? OR ken_name LIKE ? ORDER BY shohin_id";
@@ -116,7 +117,7 @@ class DBManager {
         return $searchArray;
     }
 
-    //商品検索(県別)
+    // 商品検索(県別)
     public function getShohinTblByKen($getKenName) {
         $pdo = $this -> dbConnect();
         $sql =  "SELECT * FROM shohin_tbl WHERE ken_name = ? ORDER BY shohin_id";
@@ -127,16 +128,41 @@ class DBManager {
         return $searchArray;
     }
 
-    //商品検索
-    public function getShohinTblByAttribute() {
+    // お気に入り商品表示
+    public function getFavotiteTblByUid($getUserId) {
+        $pdo = $this -> dbConnect();
+        $sql = "SELECT * FROM favorite_tbl WHERE user_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
+        $ps -> execute();
+        $searchArray = $ps -> fetchAll();
+        return $searchArray;
+    }
 
+    // お気に入り商品追加
+    public function insertFavoriteTblByUidSid($getUserId, $getShohinId) {
+        $pdo = $this -> dbConnect();
+        $sql = "INSERT INTO favorite_tbl(user_id, shohin_id) VALUES(?, ?)";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
+        $ps -> bindValue(1, $getShohinId, PDO::PARAM_INT);
+        $ps -> execute();
+    }
+
+    // お気に入り商品削除
+    public function deleteFavoriteTblByUidSid($getUserId, $getShohinId) {
+        $pdo = $this -> dbConnect();
+        $sql = "DELETE FROM favorite_tbl WHERE user_id = ? AND shohin_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
+        $ps -> bindValue(1, $getShohinId, PDO::PARAM_INT);
+        $ps -> execute();
     }
 
     //商品カート表示
     public function getCartTblByUid($getuid) {
         $pdo = $this -> dbConnect();
-        $sql = "SELECT Stbl.shohin_name, Stbl.shohin_img, Stbl.price, SCtbl.total_price, SCtbl.item_kosu, Utbl.address FROM shohin_tbl AS Stbl 
-        INNER JOIN cart_tbl AS SCtbl ON Stbl.user_id = SCtbl.user_id INNER JOIN user_tbl AS Utbl ON SCtbl.user_id = Utbl.user_id";
+        $sql = "SELECT ";
         
     }
 

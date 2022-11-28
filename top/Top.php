@@ -33,7 +33,7 @@
            foreach($searchArray as $row) {
             // 商品枠組み
             // 詳細
-            echo '<a href="../shohin/shohin_detail.php?id='.$row['shohin_id'].'">';
+            echo '<a href="../shohin/shohinDetail.php?id='.$row['shohin_id'].'">';
             // 商品写真表示
             echo '<img class="photo" src="./img/'.$row['img_pas'].'.png">';
             // 商品名表示
@@ -67,9 +67,9 @@
         <?php
            foreach($searchArray as $row) {
             // 商品枠組み
-            echo '<div class="card col-md-4 col-sm-6">';
+            echo '<div class="card all-shohin-card col-md-4 col-sm-6">';
             // 詳細
-            echo '<a href="../shohin/shohin_detail.php?id='.$row['shohin_id'].'">';
+            echo '<a href="../shohin/shohinDetail.php?id='.$row['shohin_id'].'">';
             // 商品写真表示
             echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">';
             // 商品名表示
