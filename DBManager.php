@@ -82,6 +82,16 @@ class DBManager {
         return $searchArray;
     }
 
+    //スライド商品
+    public function getShohinTblBySlider($getShohinSlider) {
+        $pdo = $this -> dbConnect();
+        $sql = "SELECT * FROM shohin_tbl WHERE slider = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getShohinSlider, PDO::PARAM_INT);
+        $ps -> execute();
+        $searchArray = $ps -> fetchAll();
+        return $searchArray;
+    }
 
     //商品一覧
     public function getShohinTblBySake($getShohinSake) {

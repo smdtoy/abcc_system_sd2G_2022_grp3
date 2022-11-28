@@ -18,29 +18,49 @@
 <body>
     <?php include "../menu/menu.php" ?>
 
+    
     <?php
         require_once '../DBManager.php';
         $dbmng = new DBManager();
-        $searchArray = $dbmng -> getShohinTblBySake(0);
+        $searchArray = $dbmng -> getShohinTblBySlider(1);
         foreach($searchArray as $row) {
         }
     ?>
 
     <div class="img">
     <ul class="slider">
-  <li><a href="../shohin/shohin_detail.php"><img src="hyakunenn.png" alt=""></a></li>
-  <li><img src="akakirisima.png" alt=""></li>
-  <li><img src="aka.png" alt=""></li>
-  <li><img src="aka.png" alt=""></li>
-  <li><img src="akakirisima.png" alt=""></li>
-  <li><img src="akakirisima.png" alt=""></li>
-  
+    <?php
+           foreach($searchArray as $row) {
+            // 商品枠組み
+            echo '<div class="card col-md-4 col-sm-6">';
+            // 詳細
+            echo '<a href="../shohin/shohin_detail.php?id='.$row['shohin_id'].'">';
+            // 商品写真表示
+            echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">';
+            // 商品名表示
+            echo '<div class="shohinName">'.$row['shohin_name'].'</div>';
+            echo '</a>';
+            echo'<div class="youryo">'.$row['capacity'].'ml'.'</div>';
+            // 商品金額表示
+            echo '<div class="shohinPrice">'.$row['price'].'円'.'</div>';
+            echo '</div>';
+        }
+        ?>
+
 <!--/slider--></ul>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="css/top.js"></script>
 
 </div>
+
+<?php
+        require_once '../DBManager.php';
+        $dbmng = new DBManager();
+        $searchArray = $dbmng -> getShohinTblBySake(0);
+        foreach($searchArray as $row) {
+        }
+    ?>
 
 <div class="card border-0 shohin-title-card">
         <div class="card-body">
