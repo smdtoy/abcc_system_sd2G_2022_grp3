@@ -105,7 +105,39 @@ h1{
   text-align: center;
 }
 
-.photo{
-  width: 200px;
-  height: 250px;
+.photo {
+  height: 300px;
+  margin: auto;
+}
+
+.shohin-title-card {
+  padding: 20px;
+}
+
+.shohin-card {
+  /* background-color: #F0F0F0; */
+  margin: auto;
+  width: 95%;
+}
+
+.shohin-center-card {
+  padding: 100px;
+  text-align: center;
+}
+
+.shohin-detail-card {
+  padding: 20px;
+}
+
+.deleteBtn {
+  background-color: #F0F0F0;
+  width: 70px;
+  font-size: 20px;
+  text-align: center;
+  margin-left: auto;
+}
+
+.shohin-detail-photo {
+  width: 100px;
+  height: 100px;
 }

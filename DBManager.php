@@ -82,6 +82,17 @@ class DBManager {
         return $searchArray;
     }
 
+
+    //商品一覧
+    public function getShohinTblBySake($getShohinSake) {
+        $pdo = $this -> dbConnect();
+        $sql = "SELECT * FROM shohin_tbl WHERE sake = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getShohinSake, PDO::PARAM_INT);
+        $ps -> execute();
+        $searchArray = $ps -> fetchAll();
+        return $searchArray;
+    }
     //商品検索(ワード)
     public function getShohinTblByWord($getShohinWord) {
         $pdo = $this -> dbConnect();
