@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お気に入り画面</title>
+    <title>お気に入り</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,6 +13,17 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <?php
+        require_once '../session.php';
+        $result = isLogin();
+    ?>
+
+    <?php
+        require_once '../DBManager.php';
+        $dbmng = new DBManager();
+    ?>
+
+    
     <?php include "../menu/menu.php" ?>
 
     <div class="card border-0 shohin-title-card">
@@ -23,19 +34,35 @@
 
     <div class="card shohin-card border-0">
         <div class="row">
-            <div class="card col-md-4 col-sm-6">
-                <button class=" btn deleteBtn"><i class="bi bi-x"></i></button>
-                <img src="..." alt="...">
-                <div>aaa</div>
-            </div>
-            <div class="card col-md-4 col-6">
-                <img src="..." alt="...">
-                <div>aaa</div>
-            </div>
-            <div class="card col-md-4 col-sm-6">
-                <img src="..." alt="...">
-                <div>aaa</div>
-            </div>
+        <?php
+            if(!isset($_SESSION['userId'])) {
+                echo '<div>お気に入り機能を利用するにはログインが必要です</div>';
+            } else {
+                $searchArray = $dbmng -> getFavotiteTblByUid($_SESSION['userId']);
+                if(empty($searchArray)) {
+                    echo '<div>お気に入り商品は0件です</div>';
+                } else {
+                    foreach($searchArray as $row) {
+                        // 商品枠組み
+                        echo '<div class="card col-md-4 col-sm-6">';
+                        // 削除
+                        echo '<button class=" btn deleteBtn"><i class="bi bi-x"></i></button>';
+                        // 詳細
+                        echo '<a href="../shohin/shohinDetail.php?id='.$row['shohin_id'].'">';
+                        // 商品写真表示
+                        echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">';
+                        // 商品名表示
+                        echo '<div class="shohinName">'.$row['shohin_name'].'</div>';
+                        echo '</a>';
+                        echo'<div class="youryo">'.$row['capacity'].'ml'.'</div>';
+                        // 商品金額表示
+                        echo '<div class="shohinPrice">'.$row['price'].'円'.'</div>';
+                        echo '</div>';
+
+                    }
+                }
+            }
+        ?>
         </div>
     </div>
 
