@@ -184,7 +184,7 @@ class DBManager {
         return $searchArray;
     }
 
-    //商品カート表示
+    //商品カート判定
     public function getCartTblByUidSid($getUserId, $getShohinId) {
         $pdo = $this -> dbConnect();
         $sql = "SELECT * FROM shohin_tbl AS st INNER JOIN cart_tbl AS ct ON st.shohin_id = ct.shohin_id WHERE ct.user_id = ? AND ct.shohin_id = ?";
@@ -212,24 +212,25 @@ class DBManager {
     //商品カート同商品変更
     public function updateCartTblByUidSid($getUserId, $getShohinId, $getShohinNum, $getShohinPrice) {
         $pdo = $this -> dbConnect();
-        $sql = "UPDATE user_tbl SET user_id = ?, shohin_id = ?, shohin_num = ?, shohin_price = ?, cart_date = ?";
+        $sql = "UPDATE cart_tbl SET user_id = ?, shohin_id = ?, shohin_num = ?, shohin_price = ?, cart_date = ? WHERE user_id = ? AND shohin_id = ?";
         $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
         $ps -> bindValue(2, $getShohinId, PDO::PARAM_INT);
         $ps -> bindValue(3, $getShohinNum, PDO::PARAM_INT);
         $ps -> bindValue(4, $getShohinPrice, PDO::PARAM_INT);
         $ps -> bindValue(5, date("Y-m-d"), PDO::PARAM_STR);
+        $ps -> bindValue(6, $getUserId, PDO::PARAM_INT);
+        $ps -> bindValue(7, $getShohinId, PDO::PARAM_INT);
         $ps -> execute();
     }
 
 
     //商品カート削除
-    public function deleteCartTblByUid($getUserId,$getShohinId) {
+    public function deleteCartTblByUidSid($getDeleteShohinCart) {
         $pdo = $this -> dbConnect();
-        $sql = "DELETE FROM cart_tbl WHERE user_id = ? AND shohin_id= ?";
+        $sql = "DELETE FROM SCtbl WHERE = ?";
         $ps = $pdo -> prepare($sql);
-        $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
-        $ps -> bindValue(2, $getShohinId, PDO::PARAM_INT);
+        $ps -> bindValue(1, $getDeleteShohinCart, PDO::PARAM_STR);
         $ps -> execute();
     }
 }
