@@ -13,16 +13,59 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <?php
+        require_once '../session.php';
+        $result = isLogin();
+    ?>
+
+    <?php
+        require_once '../DBManager.php';
+        $dbmng = new DBManager();
+    ?>
+
     <?php include "../menu/menu.php" ?>
 
     <div class="card border-0 shopcart-title-card">
         <div class="card-body">
             <h2 class="card-title">ショッピングカート</h2>
-            <h4 class="user-name">（名前）様</h4>
         </div>
     </div>
 
     <div class="card shopping-card border-0">
+        <?php
+            if(!isset($_SESSION['userId'])) {
+                echo '<div>カート機能を利用するにはログインが必要です</div>';
+            } else {
+                echo '<h4 class="user-name">'.$row['user_name'].'様</h4>';
+                $searchArray = $dbmng -> getCartTblByUid($_SESSION['userId']);
+                if(empty($searchArray)) {
+                    echo '<div>カートに商品はありません</div>';
+                } else {
+                    foreach($searchArray as $row) {
+                        // 商品枠組み
+                        echo '<div class="card shohin-card">';
+                        echo '<div class="row g-0">';
+                        echo '<div class="col-4">';
+                        // 詳細
+                        echo '<a href="../shohin/shohinDetail.php?id='.$row['shohin_id'].'">';
+                        // 写真表示
+                        echo '<div class="photoCart"><img class="photoCart" src="../img/'.$row['img_pas'].'.jpg"></div></div>';
+                        echo '</a>';
+                        // 商品名、個数、金額表示、削除ボタン
+                        echo '<div class="col-8">';
+                        echo '<div class="row">';
+                        echo '<div class="col-8">';
+                        echo '<div class="shohinName">'.$row['shohin_name'].'</div>';
+                        echo '<div class="shohinNum">'.$row['shohin_num'].'</div>';
+                        echo '<div class="shohinPrice">'.$row['shohin_price'].'</div>';
+                        echo '</div>';
+                        echo '<div class="col-4">';
+                        echo '<a class="deletebtn btn btn-outline-ligth col-auto" href="#">削除</a>';
+                        echo '</div></div></div></div>';
+                    }
+                }
+            }
+        ?>
         <div class="card shohin-card">
             <div class="row g-0">
                 <div class="col-4">

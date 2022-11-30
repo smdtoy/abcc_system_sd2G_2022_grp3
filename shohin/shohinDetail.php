@@ -23,7 +23,7 @@
         }
     ?>
 
-    <form action="../shoppingcart/shopcart.php" method="post">
+    <form action="../shoppingcart/shopCheck.php" method="post">
         <div class="card shohin-detail-card border-0">
             <div class="row">
                 <div class="card shohin-photo-card border-0 col-md-5">
@@ -42,12 +42,17 @@
                             <li class="list-group-item border-0 col-md-9 offset-3 shohinCapa">容量：<?php echo $row['capacity']; ?>ml</li>
                             <li class="list-group-item border-0 col-md-9 offset-3 shohinAlcohol">アルコール度数：<?php echo $row['alcohol']; ?>%</li>
                             <li class="list-group-item border-0 col-md-9 offset-3 shohinNum">個数:
-                                <select name="cnt">
+                                <select name="shohinNum">
                                     <option value="1" selected>1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
                                 </select>
                             </li>
                         </div>
@@ -59,6 +64,10 @@
                 <div class="row">
                     <a class="backbtn btn btn-outline-ligth col-auto" href="javascript:history.back()">戻る</a>
                     <input type="submit" class="shopbtn btn btn-outline-ligth col-auto" value="カートに入れる">
+                    <?php
+                        echo '<input type="hidden" value='.$_row['shohin_name'].' name="shohinName">';
+                        echo '<input type="hidden" value='.$_row['price'].' name="shohinPrice">';
+                    ?>
                 </div>
             </li>
         </div>

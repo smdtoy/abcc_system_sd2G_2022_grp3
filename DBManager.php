@@ -172,20 +172,37 @@ class DBManager {
     }
 
     //商品カート表示
-    public function getCartTblByUid($getuid) {
+    public function getCartTblByUid($getUserId) {
         $pdo = $this -> dbConnect();
-        $sql = "SELECT ";
-        
+        $sql = "SELECT * FROM shohin_tbl AS st INNER JOIN cart_tbl AS ct ON st.shohin_id = ct.shohin_id WHERE ct.user_id = ? ";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
+        $ps -> execute();
     }
 
     //商品カート登録
-    public function insertCartTblByUid($getUserid,$getShohiniD,$getShohinTotal) {
+    public function insertCartTblByUid($getUserId, $getShohinId, $getShohinNum, $getshohinPrice) {
         $pdo = $this -> dbConnect();
-        $sql = "INSERT INTO SCtbl(user_id,shohin_id,shohin_total) VALUES(?,?,?)";
+        $sql = "INSERT INTO cart_tbl(user_id, shohin_id, shohin_num, shohin_price, cart_date) VALUES(?, ?, ?, ? ,?)";
         $ps = $pdo -> prepare($sql);
-        $ps -> bindValue(1,$getUserid,PDO::PARAM_STR);
-        $ps -> bindValue(2,$getShohiniD,PDO::PARAM_STR);
-        $ps -> bindValue(3,$getShohinTotal,PDO::PARAM_INT);
+        $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
+        $ps -> bindValue(2, $getShohinId, PDO::PARAM_INT);
+        $ps -> bindValue(3, $getShohinNum, PDO::PARAM_INT);
+        $ps -> bindValue(4, $getShohinPrice, PDO::PARAM_INT);
+        $ps -> bindValue(5, CURRENT_DATE(), PDO::PARAM_STR);
+        $ps -> execute();
+    }
+
+    //商品カート同商品変更
+    public function updateCartTblByUid($getUserId, $getShohinId, $getShohinNum, $getshohinPrice) {
+        $pdo = $this -> dbConnect();
+        $sql = "UPDATE user_tbl SET user_id = ?, shohin_id = ?, shohin_num = ?, shohin_price = ?, cart_date = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
+        $ps -> bindValue(2, $getShohinId, PDO::PARAM_INT);
+        $ps -> bindValue(3, $getShohinNum, PDO::PARAM_INT);
+        $ps -> bindValue(4, $getShohinPrice, PDO::PARAM_INT);
+        $ps -> bindValue(5, CURRENT_DATE(), PDO::PARAM_STR);
         $ps -> execute();
     }
 
