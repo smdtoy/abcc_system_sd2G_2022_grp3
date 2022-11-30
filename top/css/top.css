@@ -106,11 +106,8 @@ h1{
 }
 
 .photo {
-  height: 300px;
-  margin: auto;
+  height: 250px;
 }
-
-
 
 .shohin-card {
   /* background-color: #F0F0F0; */
@@ -130,6 +127,10 @@ h1{
 
 .shohin-detail-card {
   padding: 20px;
+}
+
+.photoTop {
+  text-align: center;
 }
 
 .deleteBtn {

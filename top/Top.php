@@ -71,7 +71,7 @@
             // 詳細
             echo '<a href="../shohin/shohinDetail.php?id='.$row['shohin_id'].'">';
             // 商品写真表示
-            echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">';
+            echo '<div class="photoTop"><img class="photo" src="../img/'.$row['img_pas'].'.jpg"></div>';
             // 商品名表示
             echo '<div class="shohinName">'.$row['shohin_name'].'</div>';
             echo '</a>';

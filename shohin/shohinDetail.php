@@ -23,37 +23,46 @@
         }
     ?>
 
-    <div class="card shohin-detail-card border-0">
-        <div class="row">
-            <div class="card shohin-photo-card border-0 col-md-5">
-                <?php echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">'; ?>
+    <form action="../shoppingcart/shopcart.php" method="post">
+        <div class="card shohin-detail-card border-0">
+            <div class="row">
+                <div class="card shohin-photo-card border-0 col-md-5">
+                    <?php echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">'; ?>
+                </div>
+                <div class="card shohin-d-card border-0 col-md-7">
+                    <ul class="list-group list-group-flush">
+                        <div class="row">
+                        <li class="list-group-item border-0 col-md-10 shohinName"><?php echo $row['shohin_name']; ?></li>
+                        <li class="list-group-item border-0 col-md-2 shohinLike">
+                            <a class="btn" href="shohinFavoriteCheck.php?id=<?php echo $row['shohin_id'];?>"><i class="bi bi-suit-heart like"></i></a>
+                        </li>
+                        </div>
+                        <li class="list-group-item border-0 shohinPrice">￥ <?php echo $row['price']; ?></li>
+                        <div class="row">
+                            <li class="list-group-item border-0 col-md-9 offset-3 shohinCapa">容量：<?php echo $row['capacity']; ?>ml</li>
+                            <li class="list-group-item border-0 col-md-9 offset-3 shohinAlcohol">アルコール度数：<?php echo $row['alcohol']; ?>%</li>
+                            <li class="list-group-item border-0 col-md-9 offset-3 shohinNum">個数:
+                                <select name="cnt">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </li>
+                        </div>
+                        <li class="list-group-item shohinDetail"><div class="card shohin-detail"><?php echo $row['shohin_detail']; ?></li>
+                    </ul>
+                </div>
             </div>
-            <div class="card shohin-d-card border-0 col-md-7">
-                <ul class="list-group list-group-flush">
-                    <div class="row">
-                    <li class="list-group-item border-0 col-md-10 shohinName"><?php echo $row['shohin_name']; ?></li>
-                    <li class="list-group-item border-0 col-md-2 shohinLike">
-                        <a  class="btn" href="shohin_detailFin.php?id=<?php echo $row['shohin_id'];?>"><i class="bi bi-suit-heart like"></i></a>
-                    </li>
-                    </div>
-                    <li class="list-group-item border-0 shohinPrice">￥ <?php echo $row['price']; ?></li>
-                    <div class="row">
-                        <li class="list-group-item border-0 col-md-9 offset-3 shohinCapa">容量：<?php echo $row['capacity']; ?>ml</li>
-                        <li class="list-group-item border-0 col-md-9 offset-3 shohinAlcohol">アルコール度数：<?php echo $row['alcohol']; ?>%</li>
-                    </div>
-                    <li class="list-group-item shohinDetail"><div class="card shohin-detail"><?php echo $row['shohin_detail']; ?></li>
-                </ul>
-            </div>
-        </div>
-        <form action="" method="post">
             <li class="list-group-item border-0">
                 <div class="row">
                     <a class="backbtn btn btn-outline-ligth col-auto" href="javascript:history.back()">戻る</a>
-                    <input type="submit" class="shopbtn btn btn-outline-ligth col-auto" value="購入する">
+                    <input type="submit" class="shopbtn btn btn-outline-ligth col-auto" value="カートに入れる">
                 </div>
             </li>
-        </form>
-    </div>
+        </div>
+    </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

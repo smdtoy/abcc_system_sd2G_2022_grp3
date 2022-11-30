@@ -129,11 +129,23 @@ class DBManager {
     }
 
     // お気に入り商品表示
-    public function getFavotiteTblByUid($getUserId) {
+    public function getFavoriteTblByUid($getUserId) {
         $pdo = $this -> dbConnect();
-        $sql = "SELECT * FROM favorite_tbl WHERE user_id = ?";
+        $sql = "SELECT * FROM shohin_tbl AS S INNER JOIN favorite_tbl AS F ON S.shohin_id = F.shohin_id WHERE user_id = ?";
         $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
+        $ps -> execute();
+        $searchArray = $ps -> fetchAll();
+        return $searchArray;
+    }
+
+    // お気に入り商品判断
+    public function getFavoriteTblByUidSid($getUserId, $getShohinId) {
+        $pdo = $this -> dbConnect();
+        $sql = "SELECT * FROM favorite_tbl WHERE user_id = ? AND shohin_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
+        $ps -> bindValue(2, $getShohinId, PDO::PARAM_INT);
         $ps -> execute();
         $searchArray = $ps -> fetchAll();
         return $searchArray;
@@ -145,7 +157,7 @@ class DBManager {
         $sql = "INSERT INTO favorite_tbl(user_id, shohin_id) VALUES(?, ?)";
         $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
-        $ps -> bindValue(1, $getShohinId, PDO::PARAM_INT);
+        $ps -> bindValue(2, $getShohinId, PDO::PARAM_INT);
         $ps -> execute();
     }
 
@@ -155,7 +167,7 @@ class DBManager {
         $sql = "DELETE FROM favorite_tbl WHERE user_id = ? AND shohin_id = ?";
         $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
-        $ps -> bindValue(1, $getShohinId, PDO::PARAM_INT);
+        $ps -> bindValue(2, $getShohinId, PDO::PARAM_INT);
         $ps -> execute();
     }
 

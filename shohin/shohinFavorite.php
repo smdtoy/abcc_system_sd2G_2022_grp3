@@ -38,7 +38,7 @@
             if(!isset($_SESSION['userId'])) {
                 echo '<div>お気に入り機能を利用するにはログインが必要です</div>';
             } else {
-                $searchArray = $dbmng -> getFavotiteTblByUid($_SESSION['userId']);
+                $searchArray = $dbmng -> getFavoriteTblByUid($_SESSION['userId']);
                 if(empty($searchArray)) {
                     echo '<div>お気に入り商品は0件です</div>';
                 } else {
@@ -46,17 +46,17 @@
                         // 商品枠組み
                         echo '<div class="card col-md-4 col-sm-6">';
                         // 削除
-                        echo '<button class=" btn deleteBtn"><i class="bi bi-x"></i></button>';
+                        echo '<a href="shohinFavoriteCheck.php?id='.$row['shohin_id'].'" class="btn deleteBtn"><i class="bi bi-x"></i></a>';
                         // 詳細
                         echo '<a href="../shohin/shohinDetail.php?id='.$row['shohin_id'].'">';
                         // 商品写真表示
-                        echo '<img class="photo" src="../img/'.$row['img_pas'].'.jpg">';
+                        echo '<div class="photoFavorite"><img class="photo-favorite" src="../img/'.$row['img_pas'].'.jpg"></div>';
                         // 商品名表示
-                        echo '<div class="shohinName">'.$row['shohin_name'].'</div>';
+                        echo '<div class="shohinName-favorite">'.$row['shohin_name'].'</div>';
                         echo '</a>';
                         echo'<div class="youryo">'.$row['capacity'].'ml'.'</div>';
                         // 商品金額表示
-                        echo '<div class="shohinPrice">'.$row['price'].'円'.'</div>';
+                        echo '<div class="shohinPrice-favorite">'.$row['price'].'円'.'</div>';
                         echo '</div>';
 
                     }
