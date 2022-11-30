@@ -11,6 +11,18 @@
     width: 80%;
 }
 
+.shohin-card {
+    margin-bottom: 10px;
+}
+
+.shohin-detail-card {
+    margin: auto;
+}
+
+.photo {
+    height: 250px;
+}
+
 .sum-card {
     margin-top: 2%;
     text-align: right;
@@ -19,6 +31,22 @@
 .user-center-card {
     padding: 100px;
     text-align: center;
+}
+
+.photoCart {
+    text-align: center;
+}
+
+.shohinName {
+    font-size: 150%;
+}
+
+.shohinNum {
+    font-size: 120%;
+}
+
+.shohinPrice {
+    font-size: 120%;
 }
 
 .changebtn {
@@ -31,7 +59,7 @@
 }
 
 .deletebtn {
-    margin-left: auto;
+    margin: auto;
     padding: 10px;
     background-color: #909090;
     color: white;
