@@ -6,14 +6,14 @@ if(!isset($_SESSION['userId'])) {
     $alert = "<script type='text/javascript'>alert('ログインしてください');location.href = '../login/login.php'</script>";
     echo $alert;
 } else {
-    $searchArray = $dbmng -> getCartTblByUidSid($_SESSION['userId'], $_GET['id']);
+    $searchArray = $dbmng -> getCartTblByUidSid($_SESSION['userId'], $_POST['shohinId']);
     if(empty($searchArray)) {
-        $searchArray = $dbmng -> insertCartTblByUidSid($_SESSION['userId'], $_GET['id'], $_POST['shohinNum'], $_POST['shohinPrice']);
-        $alert = "<script type='text/javascript'>alert('".$_POST['shohinName']."をカートに追加しました');location.href='shohinDetail.php'?id=".$_GET['id']."</script>";
+        $searchArray = $dbmng -> insertCartTblByUidSid($_SESSION['userId'], $_POST['shohinId'], $_POST['shohinNum'], $_POST['shohinPrice']);
+        $alert = "<script type='text/javascript'>alert('カートに追加しました');location.href='shohinDetail.php'?id=".$_POST['shohinId']."'</script>";
         echo $alert;
     } else {
-        $searchArray = $dbmng -> updateCartTblByUidSid($_SESSION['userId'], $_GET['id'], $_POST['shohinNum'], $_POST['shohinPrice']);
-        $alert = "<script type='text/javascript'>alert('購入内容を変更しました');location.href='shohinDetail.php'?id=".$_GET['id']."</script>";
+        $searchArray = $dbmng -> updateCartTblByUidSid($_SESSION['userId'], $_POST['shohinId'], $_POST['shohinNum'], $_POST['shohinPrice']);
+        $alert = "<script type='text/javascript'>alert('購入内容を変更しました');location.href='shohinDetail.php'?id=".$_POST['shohinId']."'</script>";
         echo $alert;
     }
 }

@@ -65,8 +65,9 @@
                     <a class="backbtn btn btn-outline-ligth col-auto" href="javascript:history.back()">戻る</a>
                     <input type="submit" class="shopbtn btn btn-outline-ligth col-auto" value="カートに入れる">
                     <?php
-                        echo '<input type="hidden" value='.$_row['shohin_name'].' name="shohinName">';
-                        echo '<input type="hidden" value='.$_row['price'].' name="shohinPrice">';
+                        echo '<input type="hidden" value='.$row['shohin_id'].' name="shohinId">';
+                        echo '<input type="hidden" value='.$row['shohin_name'].' name="shohinName">';
+                        echo '<input type="hidden" value='.$row['price'].' name="shohinPrice">';
                     ?>
                 </div>
             </li>
