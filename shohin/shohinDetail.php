@@ -23,7 +23,7 @@
         }
     ?>
 
-    <form action="../shoppingcart/shopCheck.php" method="post">
+    <form action="../shoppingcart/shopcartInsertCheck.php" method="post">
         <div class="card shohin-detail-card border-0">
             <div class="row">
                 <div class="card shohin-photo-card border-0 col-md-5">
