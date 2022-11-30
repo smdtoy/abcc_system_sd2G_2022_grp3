@@ -45,72 +45,6 @@
                         // 商品枠組み
                         echo '<div class="card shohin-card">';
                         echo '<div class="row g-0">';
-<<<<<<< HEAD
-                        echo '<div class="col-4">';
-                        // 詳細
-                        echo '<a href="../shohin/shohinDetail.php?id='.$row['shohin_id'].'">';
-                        // 写真表示
-                        echo '<div class="photoCart"><img class="photoCart" src="../img/'.$row['img_pas'].'.jpg"></div></div>';
-                        echo '</a>';
-                        // 商品名、個数、金額表示、削除ボタン
-                        echo '<div class="col-8">';
-                        echo '<div class="row">';
-                        echo '<div class="col-8">';
-                        echo '<div class="shohinName">'.$row['shohin_name'].'</div>';
-                        echo '<div class="shohinNum">'.$row['shohin_num'].'</div>';
-                        echo '<div class="shohinPrice">'.$row['shohin_price'].'</div>';
-                        echo '</div>';
-                        echo '<div class="col-4">';
-                        echo '<a class="deletebtn btn btn-outline-ligth col-auto" href="#">削除</a>';
-                        echo '</div></div></div></div>';
-                    }
-                }
-            }
-        ?>
-        <div class="card shohin-card">
-            <div class="row g-0">
-                <div class="col-4">
-                    <img src="..." alt="...">
-                </div>
-                <div class="col-8">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-8">
-                                <h4>商品名</h4><br>
-                                <h6>個数</h6>
-                                <h5>金額</h5>
-                            </div>
-                            <div class="col-4">
-                                <a class="deletebtn btn btn-outline-ligth col-auto" href="#">削除</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card shohin-card">
-            <div class="row g-0">
-                <div class="col-4">
-                    <img src="..." alt="...">
-                </div>
-                <div class="col-8">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-8">
-                                <h4>商品名</h4><br>
-                                <h6>個数</h6>
-                                <h5>金額</h5>
-                            </div>
-                            <div class="col-4">
-                                <a class="deletebtn btn btn-outline-ligth col-auto" href="#">削除</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-=======
                         echo '<div class="col-md-4">';
                         // 詳細
                         echo '<a href="../shohin/shohinDetail.php?id='.$row['shohin_id'].'">';
@@ -130,7 +64,6 @@
                         echo '<a class="deletebtn btn btn-outline-ligth col-auto" href="#">削除</a>';
                         echo '</div>';
                         echo '</div></div></div></div>';
->>>>>>> 41597b59341afeeaa3ca6db161f9219036539ce1
                     }
                 }
             }
