@@ -65,6 +65,12 @@
                         echo '</div>';
                         echo '</div></div></div></div>';
                     }
+                    echo '<div class="card sum-card border-0">';
+                    echo '<div class="row">';
+                    echo '<div class="col-3 offset-4"><div class="shohinSum">合計</div></div>';
+                    echo '<div class="col-5"><div class="shohinSum">￥ '.$sum.'</div></div>';
+                    echo '</div></div>';
+                    echo '<a class="nextbtn btn btn-outline-ligth" href="shopcartCheck.php">購入画面へ</a>';
                 }
             }
         ?>

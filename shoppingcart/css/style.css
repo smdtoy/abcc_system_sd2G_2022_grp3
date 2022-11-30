@@ -25,6 +25,7 @@
 
 .sum-card {
     margin-top: 2%;
+    margin-bottom: 2%;
     text-align: right;
 }
 
@@ -49,12 +50,34 @@
     font-size: 120%;
 }
 
-.changebtn {
+.shohinSum {
+    font-size: 150%;
+}
+
+.buybtn {
     margin: 30px;
-    margin-left: auto;
+    margin: auto;
     width: 300px;
     padding: 10px;
     background-color: #80B2FF;
+    color: white;
+}
+
+.changebtn {
+    margin: 30px;
+    margin: auto;
+    width: 300px;
+    padding: 10px;
+    background-color: #80B2FF;
+    color: white;
+}
+
+.backbtn {
+    margin: 30px;
+    margin: auto;
+    width: 300px;
+    padding: 10px;
+    background-color: #909090;
     color: white;
 }
 
@@ -67,7 +90,7 @@
 
 .nextbtn {
     margin: 30px;
-    margin-left: auto;
+    margin: auto;
     width: 300px;
     padding: 10px;
     background-color: #909090;
