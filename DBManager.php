@@ -174,8 +174,12 @@ class DBManager {
     //商品カート表示
     public function getCartTblByUid($getuid) {
         $pdo = $this -> dbConnect();
-        $sql = "SELECT ";
-        
+        $sql = "SELECT * FROM shohin_tbl AS S INNER JOIN shohin_cart AS F ON S.shohin_id = F.shohin_id WHERE user_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
+        $ps -> execute();
+        $searchArray = $ps -> fetchAll();
+        return $searchArray;
     }
 
     //商品カート登録
