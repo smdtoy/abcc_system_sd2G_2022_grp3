@@ -210,11 +210,12 @@ class DBManager {
 
 
     //商品カート削除
-    public function deleteCartTblByUid($getDeleteShohinCart) {
+    public function deleteCartTblByUid($getUserId,$getShohinId) {
         $pdo = $this -> dbConnect();
-        $sql = "DELETE FROM SCtbl WHERE = ?";
+        $sql = "DELETE FROM cart_tbl WHERE user_id = ? AND shohin_id= ?";
         $ps = $pdo -> prepare($sql);
-        $ps -> bindValue(1, $getDeleteShohinCart, PDO::PARAM_STR);
+        $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
+        $ps -> bindValue(2, $getShohinId, PDO::PARAM_INT);
         $ps -> execute();
     }
 }
