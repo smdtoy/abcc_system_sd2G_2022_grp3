@@ -212,7 +212,7 @@ class DBManager {
     //商品カート同商品変更
     public function updateCartTblByUidSid($getUserId, $getShohinId, $getShohinNum, $getShohinPrice) {
         $pdo = $this -> dbConnect();
-        $sql = "UPDATE cart_tbl SET user_id = ?, shohin_id = ?, shohin_num = ?, shohin_price = ?, cart_date = ? WHERE user_id = ? AND shohin_id = ?";
+        $sql = "UPDATE user_tbl SET user_id = ?, shohin_id = ?, shohin_num = ?, shohin_price = ?, cart_date = ? WHERE user_id = ? AND shohin_id = ?";
         $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
         $ps -> bindValue(2, $getShohinId, PDO::PARAM_INT);
