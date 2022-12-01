@@ -61,7 +61,7 @@
                         $sum += $row['shohin_price'] * $row['shohin_num'];
                         echo '</div>';
                         echo '<div class="col-4">';
-                        echo '<a class="deletebtn btn btn-outline-ligth col-auto" href="#">削除</a>';
+                        echo '<a href="../shoppingcart/shopcartDeleteCheck.php?id='.$row['shohin_id'].'" class="deletebtn btn btn-outline-ligth col-auto">削除</a>';
                         echo '</div>';
                         echo '</div></div></div></div>';
                     }
@@ -79,5 +79,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
-
-;
