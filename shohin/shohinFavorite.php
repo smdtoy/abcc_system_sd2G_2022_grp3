@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div class="card shohin-card border-0">
+    <div class="card favorite-card border-0">
         <div class="row">
         <?php
             if(!isset($_SESSION['userId'])) {

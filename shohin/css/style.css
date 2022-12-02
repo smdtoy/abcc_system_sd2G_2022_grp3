@@ -3,9 +3,13 @@
 }
 
 .shohin-card {
-    /* background-color: #F0F0F0; */
     margin: auto;
     width: 95%;
+}
+
+.favorite-card {
+    margin: auto;
+    width: 90%;
 }
 
 .shohin-center-card {

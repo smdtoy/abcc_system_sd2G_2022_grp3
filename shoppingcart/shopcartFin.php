@@ -13,13 +13,19 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="container-fluid" id="menuber">
-        <div class="row">
-            <div class="col-md-1 offset-md-1">
-                <a class="navbar-brand" href="../top/top.php" id="logo">SAKETOWN</a>
-            </div>
-        </div>
-    </div>
+    <?php
+        require_once '../session.php';
+        $result = isLogin();
+    ?>
+
+    <?php
+        require_once '../DBManager.php';
+        $dbmng = new DBManager();
+        $searchArray = $dbmng -> insertOrderTblByUid($_SESSION['userId']);
+        $searchArray = $dbmng -> deleteAllCartTblByUid($_SESSION['userId']);
+    ?>
+
+    <?php include "../menu/menu.php" ?>
 
     <div class="card border-0 user-center-card">
         <div class="card-body">
