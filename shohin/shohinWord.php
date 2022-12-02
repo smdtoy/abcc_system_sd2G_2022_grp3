@@ -39,7 +39,7 @@
                 // 商品枠組み
                 echo '<div class="card col-md-4 col-sm-6">';
                 // 詳細
-                echo '<a href="../shohin/shohin_detail.php?id='.$row['shohin_id'].'">';
+                echo '<a href="../shohin/shohinDetail.php?id='.$row['shohin_id'].'">';
                 // 商品写真表示
                 echo '<img class="photo-word" src="../img/'.$row['img_pas'].'.jpg">';
                 // 商品名表示

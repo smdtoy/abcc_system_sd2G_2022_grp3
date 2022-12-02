@@ -25,7 +25,7 @@
         <div class="card-body">
             <h2 class="card-center">新規会員登録完了しました</h2>
             <h4 class="card-center">ようこそ、<?php echo $_POST['name'] ?>さん</h4>
-            <a class="changebtn btn btn-outline-ligth" href="../top/top.php">マイページへ</a>
+            <a class="changebtn btn btn-outline-ligth col-auto" href="../top/top.php">マイページへ</a>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
