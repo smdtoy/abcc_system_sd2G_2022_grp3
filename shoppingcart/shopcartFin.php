@@ -27,11 +27,13 @@
 
     <?php include "../menu/menu.php" ?>
 
-    <div class="card border-0 user-center-card">
+    <div class="card border-0 shop-center-card">
         <div class="card-body">
             <h2 class="card-center">購入完了しました</h2>
             <h4 class="card-center">登録先のメールアドレスに確認メールを送信しました</h4>
-            <a class="changebtn btn btn-outline-ligth" href="../top/top.php">マイページへ</a>
+            <div class="row">
+                <a class="changebtn btn btn-outline-ligth col-auto" href="../top/top.php">マイページへ</a>
+            </div>
         </div>
     </div>
 
