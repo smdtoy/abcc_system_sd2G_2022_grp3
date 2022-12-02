@@ -19,6 +19,11 @@
   font-size: 120%;
 }
 
+.newUserText {
+  margin-top: 30px;
+  text-align: center;
+}
+
 #inputOldPass{
   height: 60px;
   font-size: large;
