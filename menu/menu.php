@@ -83,6 +83,9 @@
                             <li><a class="dropdown-item" href="../ken/kagosima.php">沖縄県</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../shoppingcart/shopcartHistory.php">購入履歴</a>
+                    </li>
                 </ul>
             </div>
         </div>

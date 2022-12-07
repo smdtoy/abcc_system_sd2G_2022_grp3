@@ -54,13 +54,13 @@
                         // 商品名、個数、金額表示、削除ボタン
                         echo '<div class="col-md-8 shohin-detail-card">';
                         echo '<div class="row">';
-                        echo '<div class="col-8">';
+                        echo '<div class="col-md-8">';
                         echo '<div class="shohinName">'.$row['shohin_name'].'</div>';
                         echo '<div class="shohinNum">'.$row['shohin_num'].'点</div>';
                         echo '<div class="shohinPrice">￥ '.$row['shohin_price']*$row['shohin_num'].'</div>';
                         $sum += $row['shohin_price'] * $row['shohin_num'];
                         echo '</div>';
-                        echo '<div class="col-4">';
+                        echo '<div class="col-md-4">';
                         echo '<a href="../shoppingcart/shopcartDeleteCheck.php?id='.$row['shohin_id'].'" class="deletebtn btn btn-outline-ligth col-auto">削除</a>';
                         echo '</div>';
                         echo '</div></div></div></div>';

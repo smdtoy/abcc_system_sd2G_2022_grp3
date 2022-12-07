@@ -127,7 +127,7 @@
                 </li>
                 <li class="list-group-item">
                     <div class="row">
-                        <a class="backbtn btn btn-outline-ligth col-auto" href="new_user.php">戻る</a>
+                        <button type="button" class="backbtn btn btn-outline-ligth col-auto" onclick="history.back()">戻る</button>
                     </div>
                 </li>
                 <!-- 入力された内容が正しいか確認-->

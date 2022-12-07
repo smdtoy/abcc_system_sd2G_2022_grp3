@@ -262,5 +262,27 @@ class DBManager {
             $ps2 -> execute();
         }
     }
+
+    // 注文検索
+    public function getOrderTblByUid($getUserId) {
+        $pdo = $this -> dbConnect();
+        $sql = "SELECT * FROM order_tbl WHERE user_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getUserId, PDO::PARAM_INT);
+        $ps -> execute();
+        $searchArray = $ps -> fetchAll();
+        return $searchArray;    
+    }
+
+    // 注文明細検索
+    public function getOrderDetailTblByOid($getOrderId) {
+        $pdo = $this -> dbConnect();
+        $sql = "SELECT * FROM order_detail_tbl WHERE order_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps -> bindValue(1, $getOrderId, PDO::PARAM_INT);
+        $ps -> execute();
+        $searchArray = $ps -> fetchAll();
+        return $searchArray;
+    }
 }
 ?>

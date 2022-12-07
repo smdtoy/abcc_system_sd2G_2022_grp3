@@ -15,6 +15,17 @@
     margin-bottom: 10px;
 }
 
+.date-card {
+    font-size: 140%;
+    font-weight: bold;
+}
+
+.sum-price-card {
+    font-size: 140%;
+    margin-bottom: 25px;
+    text-align: right;
+}
+
 .card-center {
     text-align: center;
 }

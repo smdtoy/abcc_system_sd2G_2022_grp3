@@ -13,15 +13,21 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <?php include "../menu/menu.php" ?>
+    <?php
+        require_once '../session.php';
+        $result = isLogin();
+    ?>
 
     <?php 
         require '../DBManager.php';
         $dbmng = new DBManager();
         $searchArray = $dbmng -> getShohinTblById($_GET['id']);
+        $searchArray2 = $dbmng -> getFavoriteTblByUidSid($_SESSION['userId'] ,$_GET['id']);
         foreach($searchArray as $row){
         }
     ?>
+
+    <?php include "../menu/menu.php" ?>
 
     <form action="../shoppingcart/shopcartInsertCheck.php" method="post">
         <div class="card shohin-detail-card border-0">
@@ -34,7 +40,13 @@
                         <div class="row">
                         <li class="list-group-item border-0 col-md-10 shohinName"><?php echo $row['shohin_name']; ?></li>
                         <li class="list-group-item border-0 col-md-2 shohinLike">
-                            <a class="btn" href="shohinFavoriteCheck.php?id=<?php echo $row['shohin_id'];?>"><i class="bi bi-suit-heart like"></i></a>
+                            <?php
+                                if(empty($searchArray2)) {
+                                    echo '<a class="btn" href="shohinFavoriteCheck.php?id='.$row['shohin_id'].'"><i class="bi bi-suit-heart like"></i></a>';
+                                } else {
+                                    echo '<a class="btn" href="shohinFavoriteCheck.php?id='.$row['shohin_id'].'"><i class="bi bi-suit-heart-fill likeFin"></i></a>';
+                                }
+                            ?>
                         </li>
                         </div>
                         <li class="list-group-item border-0 shohinPrice">￥ <?php echo $row['price']; ?></li>
